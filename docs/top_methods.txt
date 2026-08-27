@@ -1,0 +1,51 @@
+﻿kaggle : 'charmap' codec can't encode characters in position 0-1: character maps to <undefined>
+At line:1 char:1
++ kaggle competitions topics show pokemon-tcg-ai-battle 724362 2>&1 | O ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ('charmap' codec... to <undefined>:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Topic #724362: Top players� methods, revealed by 30,000 games
+  Author: Abhyuday
+  Posted: 2026-07-10 20:17:25.005000
+  Votes: 76  Comments: 12
+
+There's been a lot of questions around the methods people are using � so I investigated using some stats. Turns out you can learn a lot based on how long a bot takes to pick an action. I ran the numbers on 30,000 games of the top teams.
+
+How??
+
+The game gives every agent a big time budget (600 seconds per game) and tracks how long it thinks on each move.
+
+
+
+A hand written bot answers almost instantly.
+
+A neural net takes a moment to load at the very start, then plays fast and steady.
+
+A search bot thinks longer when the board gets complicated, and less when it is simple.
+
+
+So by looking at how long an agent takes to start up, and whether it thinks harder in messy positions, you can guess how it works under the hood.
+
+What people are using
+
+Most of the field is rule based. About half are hand written bots or copies of the public example bots.
+
+
+What the top looks like
+
+The top player is doing something different. They load a heavy model but also fully utilise the time in the game. Most likely RL + bounded search. The rest of the top don't seem to be using search at all.
+
+Left to right is how long they think per move. Bottom to top is how long they take to start up, which basically shows who is loading a trained model.
+
+
+Most act fast
+
+One more view. Most teams answer in about three hundredths of a second per move. A small group thinks for whole seconds. There is not much in between.
+
+
+Caveat
+
+This is all guessed from behaviour so not all of these are going to be correct. But did I get yours correct?
+
+Comments:

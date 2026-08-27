@@ -1,0 +1,15 @@
+﻿Topic #709160: Daily Top Episodes Datasets
+  Author: Bovard Doerschuk-Tiberi
+  Posted: 2026-06-17 19:00:15.948000
+  Votes: 79  Comments: 5
+
+For this competition we'll be creating a dataset of the top episodes each day. This should help in reviewing replays as well as training agents. Each new dataset will be added to the index here: https://www.kaggle.com/datasets/kaggle/pokemon-tcg-ai-battle-episodes-index
+
+Comments:
+kaggle : 'charmap' codec can't encode characters in position 0-1: character maps to <undefined>
+At line:1 char:1
++ kaggle competitions topics show pokemon-tcg-ai-battle 709160 2>&1 | O ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ('charmap' codec... to <undefined>:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

@@ -1,0 +1,11 @@
+﻿kaggle : 'charmap' codec can't encode character '\u2192' in position 574: character maps to <undefined>
+At line:1 char:1
++ kaggle competitions topics show pokemon-tcg-ai-battle 729926 2>&1 | O ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ('charmap' codec... to <undefined>:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Topic #729926: Tracking 3,057 teams through 6 weeks of meta: who switched decks, when � and why it was always too late
+  Author: Sumi
+  Posted: 2026-07-27 08:53:10.162000
+  Votes: 57  Comments: 15

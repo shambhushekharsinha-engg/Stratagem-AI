@@ -1,0 +1,1 @@
+Game start Active ID: [{'id': 96, 'serial': 6, 'playerIndex': 0, 'hp': 210, 'maxHp': 210, 'appearThisTurn': False, 'energies': [], 'energyCards': [], 'tools': [], 'preEvolution': []}]

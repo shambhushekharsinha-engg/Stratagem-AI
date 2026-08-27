@@ -1,0 +1,9 @@
+﻿Rows per Card ID distribution:
+1    544
+2    691
+3     32
+
+Example Card ID 21 rows:
+    Card ID Card Name       Move Name   Cost Damage                                                                                                                     Effect Explanation
+20       21   Scrafty    Nab ’n’ Dash      ●    NaN  Search your deck for a number of cards up to the number of your Benched Pokémon and put them into your hand. Then, shuffle your deck.
+21       21   Scrafty  High Jump Kick  {D}●●    100                                                                                                                                    NaN

@@ -1,0 +1,11 @@
+﻿kaggle : 'charmap' codec can't encode character '\U0001f3ae' in position 592: character maps to <undefined>
+At line:1 char:1
++ kaggle competitions topics show pokemon-tcg-ai-battle 725195 2>&1 | O ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ('charmap' codec... to <undefined>:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Topic #725195:  Beginner Guide: From Deck List to First Valid Submission (Feedback Welcome!)
+  Author: Andre Luiz Barbosa
+  Posted: 2026-07-14 20:10:23.590000
+  Votes: 1  Comments: 1

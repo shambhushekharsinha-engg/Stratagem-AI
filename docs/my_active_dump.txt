@@ -1,0 +1,12 @@
+{
+  "id": 916,
+  "serial": 6,
+  "playerIndex": 0,
+  "hp": 90,
+  "maxHp": 90,
+  "appearThisTurn": true,
+  "energies": [],
+  "energyCards": [],
+  "tools": [],
+  "preEvolution": []
+}

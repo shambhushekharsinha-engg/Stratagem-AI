@@ -1,0 +1,1 @@
+STEP 10: Scyther has attack options: [{'type': 13, 'attackId': 1320}, {'type': 13, 'attackId': 1321}, {'type': 14}]\n

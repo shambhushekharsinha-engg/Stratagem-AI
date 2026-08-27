@@ -1,0 +1,31 @@
+﻿Exact nunique Card ID: 1267
+
+Per-category unique card counts:
+Stage (Pokémon)/Type (Energy and Trainer)
+Basic Pokémon      595
+Stage 1 Pokémon    345
+Stage 2 Pokémon    116
+Item                77
+Supporter           61
+Pokémon Tool        27
+Stadium             26
+Special Energy      12
+Basic Energy         8
+Sum: 1267
+
+Item Card ID duplication (rows per ID):
+1    72
+2     5
+
+Duplicate Item rows (all):
+      Card ID             Card Name Expansion                   Move Name                                                                                                                                                                                          Effect Explanation
+1847     1099   Antique Root Fossil       SCR                         NaN  Play this card as if it were a 60-HP Basic {C} Pokémon. This card can’t be affected by any Special Conditions and can’t retreat.\r\n\r\nAt any time during your turn, you may discard this card from play.
+1848     1099   Antique Root Fossil       SCR       [Ability] Primal Root                                                                                                 As long as this Pokémon is in the Active Spot, attacks used by your opponent’s Basic Pokémon cost {C} more.
+1885     1136  Antique Cover Fossil       BLK                         NaN  Play this card as if it were a 60-HP Basic {C} Pokémon. This card can’t be affected by any Special Conditions and can’t retreat.\r\n\r\nAt any time during your turn, you may discard this card from play.
+1886     1136  Antique Cover Fossil       BLK  [Ability] Protective Cover                                                                                             Prevent all effects of attacks used by your opponent’s Pokémon done to this Pokémon. (Damage is not an effect.)
+1888     1138  Antique Plume Fossil       WHT                         NaN  Play this card as if it were a 60-HP Basic {C} Pokémon. This card can’t be affected by any Special Conditions and can’t retreat.\r\n\r\nAt any time during your turn, you may discard this card from play.
+1889     1138  Antique Plume Fossil       WHT  [Ability] Plume Protection                                                                                  As long as this Pokémon is on your Bench, prevent all damage done to this Pokémon by attacks from your opponent’s Pokémon.
+1901     1150    Antique Jaw Fossil       POR                         NaN  Play this card as if it were a 60-HP Basic {C} Pokémon. This card can’t be affected by any Special Conditions and can’t retreat.\r\n\r\nAt any time during your turn, you may discard this card from play.
+1902     1150    Antique Jaw Fossil       POR  [Ability] Intimidating Jaw                                                  As long as this Pokémon is in the Active Spot, attacks used by your opponent’s Active Pokémon do 30 less damage (before applying Weakness and Resistance).
+1903     1151   Antique Sail Fossil       POR                         NaN  Play this card as if it were a 60-HP Basic {C} Pokémon. This card can’t be affected by any Special Conditions and can’t retreat.\r\n\r\nAt any time during your turn, you may discard this card from play.
+1904     1151   Antique Sail Fossil       POR   [Ability] Protective Sail                                                                                       Whenever your opponent plays a Supporter card from their hand, prevent all effects of that card done to this Pokémon.

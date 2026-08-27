@@ -1,0 +1,232 @@
+﻿=== PAGE: data-description ===
+### Episode Replay
+You can access episode replays for your Submissions from the `Submissions` tab, or you can download them via the CLI (or MCP) read more here: https://github.com/Kaggle/kaggle-cli/blob/main/docs/simulation_competitions.md
+
+You can download replay files from other teams from the `Leaderboard`, and we will enable a daily episode export of the top rated episodes (to help BC/RL/IL). This will be posted in the competition forums.
+
+### Dataset Description
+
+This competition provides card metadata and reference materials for the Pokémon Trading Card Game environment used in the simulator.
+
+The dataset contains card identifiers, card names, expansion information, and reference images that correspond to the cards available in the competition environment. These files are provided to help participants understand the card pool and map card IDs used in the simulator to their corresponding card details.
+
+Two versions of the card data are provided: an English version and a Japanese version. The content is identical except for the language of the card names and descriptions.
+
+### Files
+
+The dataset includes the following files:
+
+`Card\_ID\_List\_EN.pdf` - A reference document listing all cards available in the competition environment. Each entry includes the card ID, card name, expansion set, collection number, and an image of the card.
+
+`Card\_ID\_List\_JP.pdf` - The Japanese version of the card reference document. The structure is identical to the English version, but card names and descriptions are written in Japanese.
+
+`EN Card Data.csv` - A structured dataset containing metadata for each card in English.
+
+`JP Card Data.csv` - The Japanese version of the card metadata dataset.
+
+### CSV File Structure
+
+Both CSV files share the same schema and contain structured metadata for all cards used in the competition environment.
+
+Card ID  
+Unique identifier for each card used by the simulator.
+
+Card Name  
+The name of the card.
+
+Expansion  
+The expansion set the card belongs to.
+
+Collection No.  
+The card's collection number within the expansion.
+
+Stage (Pokémon) / Type (Energy and Trainer)  
+Indicates the Pokémon evolution stage (Basic, Stage 1, Stage 2\) or the card type for Energy and Trainer cards.
+
+Rule  
+Special rule text associated with the card, if applicable.
+
+Category  
+The category of the card (e.g., Pokémon, Trainer, Energy).
+
+Previous stage  
+The previous evolution stage required for this Pokémon card.
+
+HP  
+Hit Points of the Pokémon.
+
+Type  
+Pokémon type (e.g., Grass, Fire, Water).
+
+Weakness  
+Type weakness of the Pokémon.
+
+Resistance (Type)  
+Type resistance of the Pokémon.
+
+Retreat  
+Retreat cost required to switch the Pokémon.
+
+Move Name  
+Name of the attack or move.
+
+Cost  
+Energy cost required to use the move.
+
+Damage  
+Damage dealt by the move.
+
+Effect Explanation  
+Description of the move effect or additional rule text.
+
+=== PAGE: Description ===
+*Note: This TCG AI Battle Challenge has two competitions. This competition is the Simulation competition. Learn more about the Hackathon [here](https://www.kaggle.com/competitions/pokemon-tcg-ai-battle-challenge-strategy). Participation in the Hackathon is not required to enter this competition.*
+
+As a strategic game of its own, Pokémon TCG players must make gameplay decisions while being mindful of their opponent's own strategies, decks and hands. When formulating their approach to the game, players need to take into consideration various Pokémon types and thousands of different card combinations to consider various gameplay possibilities. In addition, other factors such as card draws and coin tosses introduce additional gameplay variables. The AI Training Agent’s training will be conducted within this competitive simulation framework.
+
+Not knowing what cards an opponent holds presents a core challenge for an AI Training Agent. Participants are encouraged to explore novel methodologies for strategy learning and decision making in this dynamic environment.
+
+Participants will be provided with a simulator (SDK) for training and testing. This toolkit uses the same logic as the Kaggle competition environment, making it suitable for local debugging and reinforcement learning.
+
+Using rule-based programming alone may not ensure a high ranking. Winning a Pokémon TCG game requires forward thinking, real-time adaptation, and optimal decision-making. With many different deck variations available and evolving strategies, no two games are alike. The AI Training Agent must demonstrate high analytical capacity, adaptability, and be ready for the unexpected.
+
+=== PAGE: Evaluation ===
+Each day your team is able to submit up to 5 agents to the competition. Each submission will play Episodes (games) against other agents on the ladder that have a similar skill rating. Over time skill ratings will go up with wins or down with losses and evened out with ties. To reduce the number of agents playing and increase the number of episodes each team participates in, we only track the latest 2 submissions and use those for final submissions.
+
+Every agent submitted will continue to play episodes until the end of the competition, with newer agents playing a much more frequent number of episodes. On the leaderboard only your best scoring agent will be shown, but you can track the progress of all of your submissions on your Submissions page.
+
+Each Submission has an estimated Skill Rating which is modeled by a Gaussian N(μ,σ2) where μ is the estimated skill and σ represents the uncertainty of that estimate which will decrease over time.
+
+When you upload a Submission, we first play a Validation Episode where that Submission plays against copies of itself to make sure it works properly. If the Episode fails, the Submission is marked as Error and you can download the agent logs to help figure out why. Otherwise, we initialize the Submission with μ0=600 and it joins the pool of All Submissions for ongoing evaluation.
+
+We repeatedly run Episodes from the pool of All Submissions, and try to pick Submissions with similar ratings for fair matches. Newly submitted agents will be given an increased rate in the number of episodes run to give you faster feedback.
+
+**Ranking System** 
+
+After an Episode finishes, we'll update the Rating estimate for all Submissions in that Episode. If one Submission won, we'll increase its μ and decrease its opponent's μ -- if the result was a draw, then we'll move the two μ values closer towards their mean. The updates will have magnitude relative to the deviation from the expected result based on the previous μ values, and also relative to each Submission's uncertainty σ. We also reduce the σ terms relative to the amount of information gained by the result. The score by which your agent wins or loses an Episode does not affect the skill rating updates.
+
+**Final Evaluation**
+At the submission deadline on ${competition.Deadline}, additional submissions will be locked. From ${competition.Deadline} for approximately two weeks, we will continue to run games. At the conclusion of this period, the leaderboard is final.
+
+=== PAGE: rules ===
+## ENTRY IN THIS COMPETITION CONSTITUTES YOUR ACCEPTANCE OF THESE OFFICIAL COMPETITION RULES.
+
+**[See Section 3.18 for defined terms](rules#18.-terms)**
+
+*The Competition named below is a skills-based competition sponsored by the Pokémon Company (“Sponsor” or “Pokémon”) to promote and further the field of data science and is hosted by Google Inc. (“Kaggle” or “Host”) on the Kaggle platform. You must register via the Competition Website to enter. To enter the Competition, you must agree to these Official Competition Rules, which incorporate by reference the provisions and content of the Competition Website and any Specific Competition Rules herein (collectively, the "Rules"). Please read these Rules carefully before entry to ensure you understand and agree. You further agree that Submission in the Competition constitutes agreement to these Rules. You may not submit to the Competition and are not eligible to receive the prizes associated with this Competition unless you agree to these Rules. These Rules form a binding legal agreement between you and Kaggle, as well as directly between you and Pokémon, with respect to the Competition. Your competition Submissions must conform to the requirements stated on the Competition Website. Your Submissions will be scored based on the evaluation metric described on the Competition Website. Subject to compliance with the Competition Rules, Prizes, if any, will be awarded to Participants with the best scores, based on the merits of the data science models submitted. See below for the complete Competition Rules.*
+
+### 1. COMPETITION-SPECIFIC TERMS
+
+#### 1. COMPETITION TITLE
+The Pokémon Company - PTCG AI Battle Challenge Simulation
+
+#### 2. COMPETITION HOST
+Google LLC
+
+#### 3. COMPETITION HOST ADDRESS
+1600 Amphitheatre Parkway, Mountain View, CA 94043
+
+#### 4. SPONSOR
+The Pokémon Company
+
+#### 5. SPONSOR ADDRESS
+Roppongi Hills Mori Tower, 6-10-1 Roppongi, Minato-ku, Tokyo 106-6147
+
+#### 6. COMPETITION WEBSITE
+https://www.kaggle.com/competitions/pokemon-tcg-ai-battle
+
+#### 7. TOTAL PRIZES AVAILABLE: n/a
+
+#### 8. WINNER LICENSE TYPE
+MIT
+
+#### 9. DATA ACCESS AND USE
+Competition Use Only
+
+### 2. COMPETITION-SPECIFIC RULES
+In addition to the provisions of the General Competition Rules below, you understand and agree to these Competition-Specific Rules required by the Host:
+
+#### 1. TEAM LIMITS
+a. The maximum Team size is five (5).
+
+b. Team mergers are allowed and can be performed by the Team leader. In order to merge, the combined Team must have a total Submission count less than or equal to the maximum allowed as of the Team Merger Deadline. The maximum allowed is the number of Submissions per day multiplied by the number of days the competition has been running.
+
+#### 2. SUBMISSION LIMITS
+a. You may submit a maximum of five (5) Submissions per day.
+
+b. You may select up to two (2) Final Submissions for judging.
+
+#### 3. COMPETITION TIMELINE
+a. Competition Timeline dates (including Entry Deadline, Final Submission Deadline, Start Date, and Team Merger Deadline, as applicable) are reflected on the competition’s Overview > Timeline page.
+
+#### 4. COMPETITION DATA
+
+a. Data Access and Use.
+
+   1. You may access and use the Competition Data only for participating in the Competition and on Kaggle.com forums. The Host reserves the right to disqualify any Participant who uses the Competition Data other than as permitted by the Competition Website and these Rules.
+     
+   2. Pokémon grants you a revocable, non‑exclusive license to reproduce and adapt, the Competition Data and such information within the Competition Data (meaning information relating to Pokémon cards, image assets, source code provided on Kaggle, and all other materials provided by Pokémon in connection with this competition, including any copies thereof; the same shall apply hereinafter) as is objectively and reasonably deemed necessary for the development of Submissions for this Competition, solely for use during the period of the Competition and solely for purposes related to the Competition (including the development of submissions). Your use of the Competition Data shall be limited to the scope of the license set forth in the preceding paragraph, and you shall not use Competition Data for any other purpose. Upon the conclusion of the Competition, you shall promptly delete the Competition Data.
+          
+   3. All copyrights, patent rights, trademark rights, design rights, trade secrets, and all other intellectual property rights (including the rights set forth in Articles 27 and 28 of the Copyright Act of Japan; collectively, the “Intellectual Property Rights”) relating to the Submissions and all works produced in connection with this Competition (including developed models, code (including, but not limited to Competition Code as defined below), tools, and derivatives; collectively, the “Works”) shall be retained by you. However, in addition to the rights expressly stated in these Rules, you grant Pokémon, Kaggle a
+
+=== PAGE: abstract ===
+This project aims to enhance the performance of an AI Training Agent with the Pokémon Trading Card Game (TCG). The research focuses on training AI Training Agents for competitive play in a system where probability, unknown elements, and strategic planning are key determinants of success.
+
+=== PAGE: Timeline ===
+* **June 16, 2026 11:00 am UTC** - Start Date.
+
+* **${competition.ProhibitNewEntrantsExplicitDeadline}** - Entry Deadline. You must accept the competition rules before this date in order to compete.
+
+* **${competition.TeamMergerExplicitDeadline}** - Team Merger Deadline. This is the last day participants may join or merge teams.
+
+* **August 17, 2026** - Final Submission Deadline.
+
+* **August 17, 2026 to (approx.) August 31, 2026** - We will continue to run games, or until the leaderboard has reached convergence. At the conclusion of this period, the leaderboard is final.
+
+All deadlines are at 11:59 PM UTC on the corresponding day unless otherwise noted. *The competition organizers reserve the right to update the contest timeline if they deem it necessary.*
+
+
+=== PAGE: Prizes ===
+The Competition track itself does not include monetary prizes. However, participants who submit a report to the Hackathon track will be eligible for prize awards. Final rankings for Hackathon prizes will be determined based on both the Competition leaderboard performance and the Hackathon evaluation.
+
+=== PAGE: How to Play Pokémon TCG ===
+Download the most recent rulebook for the Pokémon Trading Card Game.
+
+View the Competition [Data Page](https://www.kaggle.com/competitions/pokemon-tcg-ai-battle/data) for more information on cards and decks available for this tournament.
+
+
+Get information on the Pokémon TCG, the Play! Pokémon program and more on The Pokémon Company's [Rules & Resources page](https://www.pokemon.com/static-assets/content-assets/cms2/pdf/trading-card-game/rulebook/meg_rulebook_en.pdf).
+
+### Simulator API Documentation
+Battles are run on the cabt Engine, a Pokémon TCG battle simulator built for kaggle-environments.
+
+Each turn, your agent receives an observation — including game logs, the current board state, and a list of legal options — and returns the indices of the options it selects. The engine only ever presents legal moves.
+
+API documentation: https://matsuoinstitute.github.io/cabt/
+
+Note, there are a few differences between the official Pokémon TCG rules and the simulator behavior, which can be found [here](https://www.kaggle.com/competitions/pokemon-tcg-ai-battle/discussion/708586). 
+
+=== PAGE: How to Submit to this Competition ===
+Submissions need to be a .tar.gz bundle with main.py at the top level directory (not nested) and include a deck.csv. To create a submission, create the .tar.gz with `tar -czvf submission.tar.gz *`. Upload this under the [My Submissions tab](https://www.kaggle.com/competitions/pokemon-tcg-ai-battle/submissions) and you should be good to go! Your submission will start with a scheduled game vs itself to ensure everything is working before being entered into the matchmaking pool against the rest of the leaderboard.
+
+Code and configuration for The TCG AI Battle Challenge as of kaggle-environments 1.14.10. See the latest at https://github.com/Kaggle/kaggle-environments.
+
+=== PAGE: Trademark Note ===
+©Pokémon/Nintendo/Creatures/GAME FREAK TM, ®, and character names are trademarks of Nintendo
+
+=== PAGE: Frequently Asked Questions ===
+### Submissions
+- Submissions must be at most **${competition.SubmissionSizeLimit}**
+- Daily submission limit **${competition.MaxDailySubmissions}**
+- Only your most recent **${competition.NumScoredSubmissions}** are active
+- Your files will be located in `/kaggle_simulations/agent/`. Ensure all your file imports are set appropriately
+
+### Submission Resources
+- HDD Space: **${competition.AgentDisk}**
+- RAM: **${competition.AgentRam}**
+- vCPUs: **${competition.AgentCpuCores}**
+- Submission Size Limit: **${competition.SubmissionSizeLimit}**
+
+For questions about the environment OS or python env, please see:
+- [Docker Image](https://github.com/Kaggle/kaggle-environments/blob/master/docker/Dockerfile)
+

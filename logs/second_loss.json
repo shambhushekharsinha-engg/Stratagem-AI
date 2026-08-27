@@ -1,0 +1,3297 @@
+[
+  [
+    {
+      "action": [],
+      "reward": 0,
+      "info": {},
+      "observation": {
+        "remainingOverageTime": 600,
+        "step": 0,
+        "select": null,
+        "logs": [],
+        "current": null,
+        "search_begin_input": null
+      },
+      "status": "ACTIVE",
+      "visualize": [
+        {
+          "select": {
+            "type": "YesNo",
+            "context": "IsFirst",
+            "minCount": 1,
+            "maxCount": 1,
+            "remainDamageCounter": 0,
+            "remainEnergyCost": 0,
+            "option": [
+              {
+                "type": "Yes"
+              },
+              {
+                "type": "No"
+              }
+            ],
+            "deck": null,
+            "contextCard": null,
+            "effect": null
+          },
+          "logs": [],
+          "current": {
+            "turn": 0,
+            "turnActionCount": 1,
+            "yourIndex": 0,
+            "firstPlayer": -1,
+            "supporterPlayed": false,
+            "stadiumPlayed": false,
+            "energyAttached": false,
+            "retreated": false,
+            "result": -1,
+            "stadium": [],
+            "lookingCount": 0,
+            "looking": null,
+            "players": [
+              {
+                "active": [],
+                "bench": [],
+                "benchMax": 5,
+                "deckCount": 60,
+                "discard": [],
+                "prize": [],
+                "handCount": 0,
+                "hand": [],
+                "deck": [
+                  {
+                    "id": 1116,
+                    "serial": 51,
+                    "playerIndex": 0,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 1086,
+                    "serial": 39,
+                    "playerIndex": 0,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 1116,
+                    "serial": 53,
+                    "playerIndex": 0,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 31,
+                    "playerIndex": 0,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 916,
+                    "serial": 9,
+                    "playerIndex": 0,
+                    "name": "Scyther"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 60,
+                    "playerIndex": 0,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 6,
+                    "playerIndex": 0,
+                    "name": "Teal Mask Ogerpon ex"
+                  },
+                  {
+                    "id": 916,
+                    "serial": 10,
+                    "playerIndex": 0,
+                    "name": "Scyther"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 23,
+                    "playerIndex": 0,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 21,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 29,
+                    "playerIndex": 0,
+                    "name": "Judge"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 26,
+                    "playerIndex": 0,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 49,
+                    "playerIndex": 0,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 1116,
+                    "serial": 52,
+                    "playerIndex": 0,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 61,
+                    "playerIndex": 0,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 16,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1086,
+                    "serial": 40,
+                    "playerIndex": 0,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 38,
+                    "playerIndex": 0,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 46,
+                    "playerIndex": 0,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 58,
+                    "playerIndex": 0,
+                    "name": "Roto-Stick"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 19,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 36,
+                    "playerIndex": 0,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 56,
+                    "playerIndex": 0,
+                    "name": "Roto-Stick"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 59,
+                    "playerIndex": 0,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 35,
+                    "playerIndex": 0,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 50,
+                    "playerIndex": 0,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 57,
+                    "playerIndex": 0,
+                    "name": "Roto-Stick"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 30,
+                    "playerIndex": 0,
+                    "name": "Judge"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 34,
+                    "playerIndex": 0,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 45,
+                    "playerIndex": 0,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 22,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 37,
+                    "playerIndex": 0,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 4,
+                    "playerIndex": 0,
+                    "name": "Teal Mask Ogerpon ex"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 17,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 916,
+                    "serial": 8,
+                    "playerIndex": 0,
+                    "name": "Scyther"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 13,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1086,
+                    "serial": 42,
+                    "playerIndex": 0,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 44,
+                    "playerIndex": 0,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1116,
+                    "serial": 54,
+                    "playerIndex": 0,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 27,
+                    "playerIndex": 0,
+                    "name": "Judge"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 15,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 62,
+                    "playerIndex": 0,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 28,
+                    "playerIndex": 0,
+                    "name": "Judge"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 5,
+                    "playerIndex": 0,
+                    "name": "Teal Mask Ogerpon ex"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 3,
+                    "playerIndex": 0,
+                    "name": "Teal Mask Ogerpon ex"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 43,
+                    "playerIndex": 0,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 24,
+                    "playerIndex": 0,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 55,
+                    "playerIndex": 0,
+                    "name": "Roto-Stick"
+                  },
+                  {
+                    "id": 916,
+                    "serial": 7,
+                    "playerIndex": 0,
+                    "name": "Scyther"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 12,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 11,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 47,
+                    "playerIndex": 0,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 32,
+                    "playerIndex": 0,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 1086,
+                    "serial": 41,
+                    "playerIndex": 0,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 18,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 48,
+                    "playerIndex": 0,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 14,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 33,
+                    "playerIndex": 0,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 25,
+                    "playerIndex": 0,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 20,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  }
+                ],
+                "poisoned": false,
+                "burned": false,
+                "asleep": false,
+                "paralyzed": false,
+                "confused": false
+              },
+              {
+                "active": [],
+                "bench": [],
+                "benchMax": 5,
+                "deckCount": 60,
+                "discard": [],
+                "prize": [],
+                "handCount": 0,
+                "hand": [],
+                "deck": [
+                  {
+                    "id": 1,
+                    "serial": 79,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 108,
+                    "playerIndex": 1,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 73,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 106,
+                    "playerIndex": 1,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 71,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 78,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 103,
+                    "playerIndex": 1,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 122,
+                    "playerIndex": 1,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 118,
+                    "playerIndex": 1,
+                    "name": "Roto-Stick"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 75,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1086,
+                    "serial": 102,
+                    "playerIndex": 1,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 1116,
+                    "serial": 114,
+                    "playerIndex": 1,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 916,
+                    "serial": 70,
+                    "playerIndex": 1,
+                    "name": "Scyther"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 81,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 85,
+                    "playerIndex": 1,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 93,
+                    "playerIndex": 1,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 916,
+                    "serial": 67,
+                    "playerIndex": 1,
+                    "name": "Scyther"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 77,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 83,
+                    "playerIndex": 1,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 105,
+                    "playerIndex": 1,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 80,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 63,
+                    "playerIndex": 1,
+                    "name": "Teal Mask Ogerpon ex"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 66,
+                    "playerIndex": 1,
+                    "name": "Teal Mask Ogerpon ex"
+                  },
+                  {
+                    "id": 916,
+                    "serial": 69,
+                    "playerIndex": 1,
+                    "name": "Scyther"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 95,
+                    "playerIndex": 1,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 82,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 92,
+                    "playerIndex": 1,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 1086,
+                    "serial": 99,
+                    "playerIndex": 1,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 65,
+                    "playerIndex": 1,
+                    "name": "Teal Mask Ogerpon ex"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 119,
+                    "playerIndex": 1,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 107,
+                    "playerIndex": 1,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 110,
+                    "playerIndex": 1,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 116,
+                    "playerIndex": 1,
+                    "name": "Roto-Stick"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 117,
+                    "playerIndex": 1,
+                    "name": "Roto-Stick"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 64,
+                    "playerIndex": 1,
+                    "name": "Teal Mask Ogerpon ex"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 121,
+                    "playerIndex": 1,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 916,
+                    "serial": 68,
+                    "playerIndex": 1,
+                    "name": "Scyther"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 94,
+                    "playerIndex": 1,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 1116,
+                    "serial": 113,
+                    "playerIndex": 1,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 90,
+                    "playerIndex": 1,
+                    "name": "Judge"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 84,
+                    "playerIndex": 1,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 120,
+                    "playerIndex": 1,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 86,
+                    "playerIndex": 1,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 115,
+                    "playerIndex": 1,
+                    "name": "Roto-Stick"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 91,
+                    "playerIndex": 1,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 104,
+                    "playerIndex": 1,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1116,
+                    "serial": 111,
+                    "playerIndex": 1,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 98,
+                    "playerIndex": 1,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 109,
+                    "playerIndex": 1,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 87,
+                    "playerIndex": 1,
+                    "name": "Judge"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 97,
+                    "playerIndex": 1,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 1116,
+                    "serial": 112,
+                    "playerIndex": 1,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 76,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1086,
+                    "serial": 101,
+                    "playerIndex": 1,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 74,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 88,
+                    "playerIndex": 1,
+                    "name": "Judge"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 96,
+                    "playerIndex": 1,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 1086,
+                    "serial": 100,
+                    "playerIndex": 1,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 72,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 89,
+                    "playerIndex": 1,
+                    "name": "Judge"
+                  }
+                ],
+                "poisoned": false,
+                "burned": false,
+                "asleep": false,
+                "paralyzed": false,
+                "confused": false
+              }
+            ]
+          },
+          "selected": null,
+          "ver": 2,
+          "obs": {
+            "remainingOverageTime": 600,
+            "step": 0,
+            "select": null,
+            "logs": [],
+            "current": null
+          },
+          "action": [
+            [
+              96,
+              96,
+              96,
+              96,
+              916,
+              916,
+              916,
+              916,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1182,
+              1182,
+              1182,
+              1182,
+              1213,
+              1213,
+              1213,
+              1213,
+              1192,
+              1192,
+              1192,
+              1192,
+              1191,
+              1191,
+              1191,
+              1191,
+              1086,
+              1086,
+              1086,
+              1086,
+              1121,
+              1121,
+              1121,
+              1121,
+              1123,
+              1123,
+              1123,
+              1123,
+              1116,
+              1116,
+              1116,
+              1116,
+              1077,
+              1077,
+              1077,
+              1077,
+              1083,
+              1083,
+              1083,
+              1083
+            ],
+            [
+              96,
+              96,
+              96,
+              96,
+              916,
+              916,
+              916,
+              916,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1182,
+              1182,
+              1182,
+              1182,
+              1213,
+              1213,
+              1213,
+              1213,
+              1192,
+              1192,
+              1192,
+              1192,
+              1191,
+              1191,
+              1191,
+              1191,
+              1086,
+              1086,
+              1086,
+              1086,
+              1121,
+              1121,
+              1121,
+              1121,
+              1123,
+              1123,
+              1123,
+              1123,
+              1116,
+              1116,
+              1116,
+              1116,
+              1077,
+              1077,
+              1077,
+              1077,
+              1083,
+              1083,
+              1083,
+              1083
+            ]
+          ]
+        },
+        {
+          "select": {
+            "type": "Card",
+            "context": "SetupActivePokemon",
+            "minCount": 1,
+            "maxCount": 1,
+            "remainDamageCounter": 0,
+            "remainEnergyCost": 0,
+            "option": [
+              {
+                "type": "Card",
+                "area": 2,
+                "index": 1,
+                "playerIndex": 1
+              }
+            ],
+            "deck": null,
+            "contextCard": null,
+            "effect": null
+          },
+          "logs": [
+            {
+              "type": "Draw",
+              "playerIndex": 1,
+              "cardId": 1213,
+              "serial": 89
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 1,
+              "cardId": 1,
+              "serial": 72
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 1,
+              "cardId": 1086,
+              "serial": 100
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 1,
+              "cardId": 1191,
+              "serial": 96
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 1,
+              "cardId": 1213,
+              "serial": 88
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 1,
+              "cardId": 1,
+              "serial": 74
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 1,
+              "cardId": 1086,
+              "serial": 101
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 0,
+              "cardId": 1,
+              "serial": 20
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 0,
+              "cardId": 1182,
+              "serial": 25
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 0,
+              "cardId": 1192,
+              "serial": 33
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 0,
+              "cardId": 1,
+              "serial": 14
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 0,
+              "cardId": 1123,
+              "serial": 48
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 0,
+              "cardId": 1,
+              "serial": 18
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 0,
+              "cardId": 1086,
+              "serial": 41
+            },
+            {
+              "type": "HasBasicPokemon",
+              "playerIndex": 1,
+              "hasBasicPokemon": false
+            },
+            {
+              "type": "HasBasicPokemon",
+              "playerIndex": 0,
+              "hasBasicPokemon": false
+            },
+            {
+              "type": "MoveCard",
+              "playerIndex": 1,
+              "cardId": 1086,
+              "serial": 101,
+              "fromArea": 2,
+              "toArea": 1
+            },
+            {
+              "type": "MoveCard",
+              "playerIndex": 1,
+              "cardId": 1,
+              "serial": 74,
+              "fromArea": 2,
+              "toArea": 1
+            },
+            {
+              "type": "MoveCard",
+              "playerIndex": 1,
+              "cardId": 1213,
+              "serial": 88,
+              "fromArea": 2,
+              "toArea": 1
+            },
+            {
+              "type": "MoveCard",
+              "playerIndex": 1,
+              "cardId": 1191,
+              "serial": 96,
+              "fromArea": 2,
+              "toArea": 1
+            },
+            {
+              "type": "MoveCard",
+              "playerIndex": 1,
+              "cardId": 1086,
+              "serial": 100,
+              "fromArea": 2,
+              "toArea": 1
+            },
+            {
+              "type": "MoveCard",
+              "playerIndex": 1,
+              "cardId": 1,
+              "serial": 72,
+              "fromArea": 2,
+              "toArea": 1
+            },
+            {
+              "type": "MoveCard",
+              "playerIndex": 1,
+              "cardId": 1213,
+              "serial": 89,
+              "fromArea": 2,
+              "toArea": 1
+            },
+            {
+              "type": "Shuffle",
+              "playerIndex": 1
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 1,
+              "cardId": 1116,
+              "serial": 112
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 1,
+              "cardId": 96,
+              "serial": 66
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 1,
+              "cardId": 1121,
+              "serial": 105
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 1,
+              "cardId": 1192,
+              "serial": 92
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 1,
+              "cardId": 1086,
+              "serial": 99
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 1,
+              "cardId": 1083,
+              "serial": 119
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 1,
+              "cardId": 1,
+              "serial": 79
+            },
+            {
+              "type": "MoveCard",
+              "playerIndex": 0,
+              "cardId": 1086,
+              "serial": 41,
+              "fromArea": 2,
+              "toArea": 1
+            },
+            {
+              "type": "MoveCard",
+              "playerIndex": 0,
+              "cardId": 1,
+              "serial": 18,
+              "fromArea": 2,
+              "toArea": 1
+            },
+            {
+              "type": "MoveCard",
+              "playerIndex": 0,
+              "cardId": 1123,
+              "serial": 48,
+              "fromArea": 2,
+              "toArea": 1
+            },
+            {
+              "type": "MoveCard",
+              "playerIndex": 0,
+              "cardId": 1,
+              "serial": 14,
+              "fromArea": 2,
+              "toArea": 1
+            },
+            {
+              "type": "MoveCard",
+              "playerIndex": 0,
+              "cardId": 1192,
+              "serial": 33,
+              "fromArea": 2,
+              "toArea": 1
+            },
+            {
+              "type": "MoveCard",
+              "playerIndex": 0,
+              "cardId": 1182,
+              "serial": 25,
+              "fromArea": 2,
+              "toArea": 1
+            },
+            {
+              "type": "MoveCard",
+              "playerIndex": 0,
+              "cardId": 1,
+              "serial": 20,
+              "fromArea": 2,
+              "toArea": 1
+            },
+            {
+              "type": "Shuffle",
+              "playerIndex": 0
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 0,
+              "cardId": 916,
+              "serial": 10
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 0,
+              "cardId": 916,
+              "serial": 8
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 0,
+              "cardId": 1191,
+              "serial": 38
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 0,
+              "cardId": 1192,
+              "serial": 33
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 0,
+              "cardId": 1083,
+              "serial": 62
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 0,
+              "cardId": 1123,
+              "serial": 49
+            },
+            {
+              "type": "Draw",
+              "playerIndex": 0,
+              "cardId": 96,
+              "serial": 5
+            },
+            {
+              "type": "HasBasicPokemon",
+              "playerIndex": 1,
+              "hasBasicPokemon": true
+            },
+            {
+              "type": "HasBasicPokemon",
+              "playerIndex": 0,
+              "hasBasicPokemon": true
+            }
+          ],
+          "current": {
+            "turn": 0,
+            "turnActionCount": 2,
+            "yourIndex": 1,
+            "firstPlayer": 1,
+            "supporterPlayed": false,
+            "stadiumPlayed": false,
+            "energyAttached": false,
+            "retreated": false,
+            "result": -1,
+            "stadium": [],
+            "lookingCount": 0,
+            "looking": null,
+            "players": [
+              {
+                "active": [],
+                "bench": [],
+                "benchMax": 5,
+                "deckCount": 53,
+                "discard": [],
+                "prize": [],
+                "handCount": 7,
+                "hand": [
+                  {
+                    "id": 916,
+                    "serial": 10,
+                    "playerIndex": 0,
+                    "name": "Scyther"
+                  },
+                  {
+                    "id": 916,
+                    "serial": 8,
+                    "playerIndex": 0,
+                    "name": "Scyther"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 38,
+                    "playerIndex": 0,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 33,
+                    "playerIndex": 0,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 62,
+                    "playerIndex": 0,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 49,
+                    "playerIndex": 0,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 5,
+                    "playerIndex": 0,
+                    "name": "Teal Mask Ogerpon ex"
+                  }
+                ],
+                "deck": [
+                  {
+                    "id": 1086,
+                    "serial": 42,
+                    "playerIndex": 0,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 55,
+                    "playerIndex": 0,
+                    "name": "Roto-Stick"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 37,
+                    "playerIndex": 0,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 31,
+                    "playerIndex": 0,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 916,
+                    "serial": 7,
+                    "playerIndex": 0,
+                    "name": "Scyther"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 57,
+                    "playerIndex": 0,
+                    "name": "Roto-Stick"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 58,
+                    "playerIndex": 0,
+                    "name": "Roto-Stick"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 27,
+                    "playerIndex": 0,
+                    "name": "Judge"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 11,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 48,
+                    "playerIndex": 0,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 1086,
+                    "serial": 39,
+                    "playerIndex": 0,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 1116,
+                    "serial": 52,
+                    "playerIndex": 0,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 45,
+                    "playerIndex": 0,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 36,
+                    "playerIndex": 0,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 56,
+                    "playerIndex": 0,
+                    "name": "Roto-Stick"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 19,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 34,
+                    "playerIndex": 0,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 23,
+                    "playerIndex": 0,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 47,
+                    "playerIndex": 0,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 61,
+                    "playerIndex": 0,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 13,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 12,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 44,
+                    "playerIndex": 0,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 29,
+                    "playerIndex": 0,
+                    "name": "Judge"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 20,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 35,
+                    "playerIndex": 0,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 26,
+                    "playerIndex": 0,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 6,
+                    "playerIndex": 0,
+                    "name": "Teal Mask Ogerpon ex"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 14,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 21,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 16,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 22,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1086,
+                    "serial": 41,
+                    "playerIndex": 0,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 32,
+                    "playerIndex": 0,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 3,
+                    "playerIndex": 0,
+                    "name": "Teal Mask Ogerpon ex"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 25,
+                    "playerIndex": 0,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 59,
+                    "playerIndex": 0,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 28,
+                    "playerIndex": 0,
+                    "name": "Judge"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 24,
+                    "playerIndex": 0,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 1086,
+                    "serial": 40,
+                    "playerIndex": 0,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 17,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1116,
+                    "serial": 54,
+                    "playerIndex": 0,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 15,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 46,
+                    "playerIndex": 0,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 50,
+                    "playerIndex": 0,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 30,
+                    "playerIndex": 0,
+                    "name": "Judge"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 60,
+                    "playerIndex": 0,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 18,
+                    "playerIndex": 0,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 43,
+                    "playerIndex": 0,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1116,
+                    "serial": 53,
+                    "playerIndex": 0,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 1116,
+                    "serial": 51,
+                    "playerIndex": 0,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 4,
+                    "playerIndex": 0,
+                    "name": "Teal Mask Ogerpon ex"
+                  },
+                  {
+                    "id": 916,
+                    "serial": 9,
+                    "playerIndex": 0,
+                    "name": "Scyther"
+                  }
+                ],
+                "poisoned": false,
+                "burned": false,
+                "asleep": false,
+                "paralyzed": false,
+                "confused": false
+              },
+              {
+                "active": [],
+                "bench": [],
+                "benchMax": 5,
+                "deckCount": 53,
+                "discard": [],
+                "prize": [],
+                "handCount": 7,
+                "hand": [
+                  {
+                    "id": 1116,
+                    "serial": 112,
+                    "playerIndex": 1,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 66,
+                    "playerIndex": 1,
+                    "name": "Teal Mask Ogerpon ex"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 105,
+                    "playerIndex": 1,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 92,
+                    "playerIndex": 1,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 1086,
+                    "serial": 99,
+                    "playerIndex": 1,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 119,
+                    "playerIndex": 1,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 79,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  }
+                ],
+                "deck": [
+                  {
+                    "id": 1,
+                    "serial": 75,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 94,
+                    "playerIndex": 1,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 86,
+                    "playerIndex": 1,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 96,
+                    "playerIndex": 1,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 916,
+                    "serial": 67,
+                    "playerIndex": 1,
+                    "name": "Scyther"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 83,
+                    "playerIndex": 1,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 118,
+                    "playerIndex": 1,
+                    "name": "Roto-Stick"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 122,
+                    "playerIndex": 1,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 110,
+                    "playerIndex": 1,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 76,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 85,
+                    "playerIndex": 1,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 90,
+                    "playerIndex": 1,
+                    "name": "Judge"
+                  },
+                  {
+                    "id": 916,
+                    "serial": 70,
+                    "playerIndex": 1,
+                    "name": "Scyther"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 81,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 103,
+                    "playerIndex": 1,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 108,
+                    "playerIndex": 1,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 1086,
+                    "serial": 102,
+                    "playerIndex": 1,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 89,
+                    "playerIndex": 1,
+                    "name": "Judge"
+                  },
+                  {
+                    "id": 1086,
+                    "serial": 101,
+                    "playerIndex": 1,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 72,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 71,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 116,
+                    "playerIndex": 1,
+                    "name": "Roto-Stick"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 91,
+                    "playerIndex": 1,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 98,
+                    "playerIndex": 1,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 1086,
+                    "serial": 100,
+                    "playerIndex": 1,
+                    "name": "Buddy-Buddy Poffin"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 106,
+                    "playerIndex": 1,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 77,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1116,
+                    "serial": 113,
+                    "playerIndex": 1,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 82,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 95,
+                    "playerIndex": 1,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 64,
+                    "playerIndex": 1,
+                    "name": "Teal Mask Ogerpon ex"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 73,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1192,
+                    "serial": 93,
+                    "playerIndex": 1,
+                    "name": "Carmine"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 74,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 63,
+                    "playerIndex": 1,
+                    "name": "Teal Mask Ogerpon ex"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 88,
+                    "playerIndex": 1,
+                    "name": "Judge"
+                  },
+                  {
+                    "id": 1116,
+                    "serial": 111,
+                    "playerIndex": 1,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 109,
+                    "playerIndex": 1,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 1213,
+                    "serial": 87,
+                    "playerIndex": 1,
+                    "name": "Judge"
+                  },
+                  {
+                    "id": 1121,
+                    "serial": 104,
+                    "playerIndex": 1,
+                    "name": "Ultra Ball"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 78,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1123,
+                    "serial": 107,
+                    "playerIndex": 1,
+                    "name": "Switch"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 117,
+                    "playerIndex": 1,
+                    "name": "Roto-Stick"
+                  },
+                  {
+                    "id": 1,
+                    "serial": 80,
+                    "playerIndex": 1,
+                    "name": "Basic {G} Energy"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 121,
+                    "playerIndex": 1,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 1083,
+                    "serial": 120,
+                    "playerIndex": 1,
+                    "name": "Love Ball"
+                  },
+                  {
+                    "id": 916,
+                    "serial": 69,
+                    "playerIndex": 1,
+                    "name": "Scyther"
+                  },
+                  {
+                    "id": 96,
+                    "serial": 65,
+                    "playerIndex": 1,
+                    "name": "Teal Mask Ogerpon ex"
+                  },
+                  {
+                    "id": 1116,
+                    "serial": 114,
+                    "playerIndex": 1,
+                    "name": "Energy Switch"
+                  },
+                  {
+                    "id": 1191,
+                    "serial": 97,
+                    "playerIndex": 1,
+                    "name": "Kieran"
+                  },
+                  {
+                    "id": 1182,
+                    "serial": 84,
+                    "playerIndex": 1,
+                    "name": "Boss\u2019s Orders"
+                  },
+                  {
+                    "id": 916,
+                    "serial": 68,
+                    "playerIndex": 1,
+                    "name": "Scyther"
+                  },
+                  {
+                    "id": 1077,
+                    "serial": 115,
+                    "playerIndex": 1,
+                    "name": "Roto-Stick"
+                  }
+                ],
+                "poisoned": false,
+                "burned": false,
+                "asleep": false,
+                "paralyzed": false,
+                "confused": false
+              }
+            ]
+          },
+          "selected": [
+            1
+          ],
+          "ver": 2,
+          "obs": {
+            "remainingOverageTime": 599.999994,
+            "step": 1,
+            "select": {
+              "type": 9,
+              "context": 41,
+              "minCount": 1,
+              "maxCount": 1,
+              "remainDamageCounter": 0,
+              "remainEnergyCost": 0,
+              "option": [
+                {
+                  "type": 1
+                },
+                {
+                  "type": 2
+                }
+              ],
+              "deck": null,
+              "contextCard": null,
+              "effect": null
+            },
+            "logs": [],
+            "current": {
+              "turn": 0,
+              "turnActionCount": 1,
+              "yourIndex": 0,
+              "firstPlayer": -1,
+              "supporterPlayed": false,
+              "stadiumPlayed": false,
+              "energyAttached": false,
+              "retreated": false,
+              "result": -1,
+              "stadium": [],
+              "looking": null,
+              "players": [
+                {
+                  "active": [],
+                  "bench": [],
+                  "benchMax": 5,
+                  "deckCount": 60,
+                  "discard": [],
+                  "prize": [],
+                  "handCount": 0,
+                  "hand": [],
+                  "poisoned": false,
+                  "burned": false,
+                  "asleep": false,
+                  "paralyzed": false,
+                  "confused": false
+                },
+                {
+                  "active": [],
+                  "bench": [],
+                  "benchMax": 5,
+                  "deckCount": 60,
+                  "discard": [],
+                  "prize": [],
+                  "handCount": 0,
+                  "hand": null,
+                  "poisoned": false,
+                  "burned": false,
+                  "asleep": false,
+                  "paralyzed": false,
+                  "confused": false
+                }
+              ]
+            }
+          },
+          "action": [
+            [
+              1
+            ],
+            []
+          ]
+        }
+      ]
+    },
+    {
+      "action": [],
+      "reward": 0,
+      "info": {},
+      "observation": {
+        "remainingOverageTime": 600,
+        "select": null,
+        "logs": [],
+        "current": null,
+        "search_begin_input": null
+      },
+      "status": "ACTIVE"
+    }
+  ],
+  [
+    {
+      "action": [
+        96,
+        96,
+        96,
+        96,
+        916,
+        916,
+        916,
+        916,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1182,
+        1182,
+        1182,
+        1182,
+        1213,
+        1213,
+        1213,
+        1213,
+        1192,
+        1192,
+        1192,
+        1192,
+        1191,
+        1191,
+        1191,
+        1191,
+        1086,
+        1086,
+        1086,
+        1086,
+        1121,
+        1121,
+        1121,
+        1121,
+        1123,
+        1123,
+        1123,
+        1123,
+        1116,
+        1116,
+        1116,
+        1116,
+        1077,
+        1077,
+        1077,
+        1077,
+        1083,
+        1083,
+        1083,
+        1083
+      ],
+      "reward": 0,
+      "info": {},
+      "observation": {
+        "remainingOverageTime": 599.999994,
+        "step": 1,
+        "select": {
+          "type": 9,
+          "context": 41,
+          "minCount": 1,
+          "maxCount": 1,
+          "remainDamageCounter": 0,
+          "remainEnergyCost": 0,
+          "option": [
+            {
+              "type": 1
+            },
+            {
+              "type": 2
+            }
+          ],
+          "deck": null,
+          "contextCard": null,
+          "effect": null
+        },
+        "logs": [],
+        "current": {
+          "turn": 0,
+          "turnActionCount": 1,
+          "yourIndex": 0,
+          "firstPlayer": -1,
+          "supporterPlayed": false,
+          "stadiumPlayed": false,
+          "energyAttached": false,
+          "retreated": false,
+          "result": -1,
+          "stadium": [],
+          "looking": null,
+          "players": [
+            {
+              "active": [],
+              "bench": [],
+              "benchMax": 5,
+              "deckCount": 60,
+              "discard": [],
+              "prize": [],
+              "handCount": 0,
+              "hand": [],
+              "poisoned": false,
+              "burned": false,
+              "asleep": false,
+              "paralyzed": false,
+              "confused": false
+            },
+            {
+              "active": [],
+              "bench": [],
+              "benchMax": 5,
+              "deckCount": 60,
+              "discard": [],
+              "prize": [],
+              "handCount": 0,
+              "hand": null,
+              "poisoned": false,
+              "burned": false,
+              "asleep": false,
+              "paralyzed": false,
+              "confused": false
+            }
+          ]
+        },
+        "search_begin_input": "AGEAjD/AGEAboqAGEAEB-+CB7-pIDw-UM8-fIB-VEQ-VBL-+BI-UBBCw*jiGgAEEAPI-KBQADE0AWQABhAG=="
+      },
+      "status": "ACTIVE"
+    },
+    {
+      "action": [
+        96,
+        96,
+        96,
+        96,
+        916,
+        916,
+        916,
+        916,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1182,
+        1182,
+        1182,
+        1182,
+        1213,
+        1213,
+        1213,
+        1213,
+        1192,
+        1192,
+        1192,
+        1192,
+        1191,
+        1191,
+        1191,
+        1191,
+        1086,
+        1086,
+        1086,
+        1086,
+        1121,
+        1121,
+        1121,
+        1121,
+        1123,
+        1123,
+        1123,
+        1123,
+        1116,
+        1116,
+        1116,
+        1116,
+        1077,
+        1077,
+        1077,
+        1077,
+        1083,
+        1083,
+        1083,
+        1083
+      ],
+      "reward": 0,
+      "info": {},
+      "observation": {
+        "remainingOverageTime": 599.999995,
+        "select": null,
+        "logs": [],
+        "current": null,
+        "search_begin_input": null
+      },
+      "status": "INACTIVE"
+    }
+  ],
+  [
+    {
+      "action": [
+        1
+      ],
+      "reward": 0,
+      "info": {},
+      "observation": {
+        "remainingOverageTime": 599.999952,
+        "step": 2,
+        "select": {
+          "type": 9,
+          "context": 41,
+          "minCount": 1,
+          "maxCount": 1,
+          "remainDamageCounter": 0,
+          "remainEnergyCost": 0,
+          "option": [
+            {
+              "type": 1
+            },
+            {
+              "type": 2
+            }
+          ],
+          "deck": null,
+          "contextCard": null,
+          "effect": null
+        },
+        "logs": [],
+        "current": {
+          "turn": 0,
+          "turnActionCount": 1,
+          "yourIndex": 0,
+          "firstPlayer": -1,
+          "supporterPlayed": false,
+          "stadiumPlayed": false,
+          "energyAttached": false,
+          "retreated": false,
+          "result": -1,
+          "stadium": [],
+          "looking": null,
+          "players": [
+            {
+              "active": [],
+              "bench": [],
+              "benchMax": 5,
+              "deckCount": 60,
+              "discard": [],
+              "prize": [],
+              "handCount": 0,
+              "hand": [],
+              "poisoned": false,
+              "burned": false,
+              "asleep": false,
+              "paralyzed": false,
+              "confused": false
+            },
+            {
+              "active": [],
+              "bench": [],
+              "benchMax": 5,
+              "deckCount": 60,
+              "discard": [],
+              "prize": [],
+              "handCount": 0,
+              "hand": null,
+              "poisoned": false,
+              "burned": false,
+              "asleep": false,
+              "paralyzed": false,
+              "confused": false
+            }
+          ]
+        },
+        "search_begin_input": "AGEAjD/AGEAboqAGEAEB-+CB7-pIDw-UM8-fIB-VEQ-VBL-+BI-UBBCw*jiGgAEEAPI-KBQADE0AWQABhAG=="
+      },
+      "status": "INACTIVE"
+    },
+    {
+      "action": [],
+      "reward": 0,
+      "info": {},
+      "observation": {
+        "remainingOverageTime": 599.999995,
+        "select": {
+          "type": 1,
+          "context": 1,
+          "minCount": 1,
+          "maxCount": 1,
+          "remainDamageCounter": 0,
+          "remainEnergyCost": 0,
+          "option": [
+            {
+              "type": 3,
+              "area": 2,
+              "index": 1,
+              "playerIndex": 1
+            }
+          ],
+          "deck": null,
+          "contextCard": null,
+          "effect": null
+        },
+        "logs": [
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1213,
+            "serial": 89
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1,
+            "serial": 72
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1086,
+            "serial": 100
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1191,
+            "serial": 96
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1213,
+            "serial": 88
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1,
+            "serial": 74
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1086,
+            "serial": 101
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 1,
+            "playerIndex": 1,
+            "hasBasicPokemon": false
+          },
+          {
+            "type": 1,
+            "playerIndex": 0,
+            "hasBasicPokemon": false
+          },
+          {
+            "type": 6,
+            "playerIndex": 1,
+            "cardId": 1086,
+            "serial": 101,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 1,
+            "cardId": 1,
+            "serial": 74,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 1,
+            "cardId": 1213,
+            "serial": 88,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 1,
+            "cardId": 1191,
+            "serial": 96,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 1,
+            "cardId": 1086,
+            "serial": 100,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 1,
+            "cardId": 1,
+            "serial": 72,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 1,
+            "cardId": 1213,
+            "serial": 89,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 0,
+            "playerIndex": 1
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1116,
+            "serial": 112
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 96,
+            "serial": 66
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1121,
+            "serial": 105
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1192,
+            "serial": 92
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1086,
+            "serial": 99
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1083,
+            "serial": 119
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1,
+            "serial": 79
+          },
+          {
+            "type": 6,
+            "playerIndex": 0,
+            "cardId": 1086,
+            "serial": 41,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 0,
+            "cardId": 1,
+            "serial": 18,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 0,
+            "cardId": 1123,
+            "serial": 48,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 0,
+            "cardId": 1,
+            "serial": 14,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 0,
+            "cardId": 1192,
+            "serial": 33,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 0,
+            "cardId": 1182,
+            "serial": 25,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 0,
+            "cardId": 1,
+            "serial": 20,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 0,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 1,
+            "playerIndex": 1,
+            "hasBasicPokemon": true
+          },
+          {
+            "type": 1,
+            "playerIndex": 0,
+            "hasBasicPokemon": true
+          }
+        ],
+        "current": {
+          "turn": 0,
+          "turnActionCount": 2,
+          "yourIndex": 1,
+          "firstPlayer": 1,
+          "supporterPlayed": false,
+          "stadiumPlayed": false,
+          "energyAttached": false,
+          "retreated": false,
+          "result": -1,
+          "stadium": [],
+          "looking": null,
+          "players": [
+            {
+              "active": [],
+              "bench": [],
+              "benchMax": 5,
+              "deckCount": 53,
+              "discard": [],
+              "prize": [],
+              "handCount": 7,
+              "hand": null,
+              "poisoned": false,
+              "burned": false,
+              "asleep": false,
+              "paralyzed": false,
+              "confused": false
+            },
+            {
+              "active": [],
+              "bench": [],
+              "benchMax": 5,
+              "deckCount": 53,
+              "discard": [],
+              "prize": [],
+              "handCount": 7,
+              "hand": [
+                {
+                  "id": 1116,
+                  "serial": 112,
+                  "playerIndex": 1
+                },
+                {
+                  "id": 96,
+                  "serial": 66,
+                  "playerIndex": 1
+                },
+                {
+                  "id": 1121,
+                  "serial": 105,
+                  "playerIndex": 1
+                },
+                {
+                  "id": 1192,
+                  "serial": 92,
+                  "playerIndex": 1
+                },
+                {
+                  "id": 1086,
+                  "serial": 99,
+                  "playerIndex": 1
+                },
+                {
+                  "id": 1083,
+                  "serial": 119,
+                  "playerIndex": 1
+                },
+                {
+                  "id": 1,
+                  "serial": 79,
+                  "playerIndex": 1
+                }
+              ],
+              "poisoned": false,
+              "burned": false,
+              "asleep": false,
+              "paralyzed": false,
+              "confused": false
+            }
+          ]
+        },
+        "search_begin_input": "AGIAkBAGEAbICADBACEAEB-+CCl-PHH-ZBDU-5KBwADHBCaVxjd08-MB1-fIB-VEQ-VBL-+BI-UBBCw*3TDGAECR-VBQIB-3pBAElg-UBECABQ-2pqABQACJM-UBBABgE-2VD4EACCU-VBQIB-hSGEEACCS-VBQIB-2VBcBADk-VBECABQ-2VOwQACJU-UBBABgE-icQAEMACgABBACE-BBBAEGwAWQABdGQAVBABB5oAVQEABHlkAEBAPBABQABeAG=="
+      },
+      "status": "ACTIVE"
+    }
+  ],
+  [
+    {
+      "action": [],
+      "reward": 1,
+      "info": {},
+      "observation": {
+        "remainingOverageTime": 599.999952,
+        "step": 3,
+        "select": {
+          "type": 9,
+          "context": 41,
+          "minCount": 1,
+          "maxCount": 1,
+          "remainDamageCounter": 0,
+          "remainEnergyCost": 0,
+          "option": [
+            {
+              "type": 1
+            },
+            {
+              "type": 2
+            }
+          ],
+          "deck": null,
+          "contextCard": null,
+          "effect": null
+        },
+        "logs": [],
+        "current": {
+          "turn": 0,
+          "turnActionCount": 1,
+          "yourIndex": 0,
+          "firstPlayer": -1,
+          "supporterPlayed": false,
+          "stadiumPlayed": false,
+          "energyAttached": false,
+          "retreated": false,
+          "result": -1,
+          "stadium": [],
+          "looking": null,
+          "players": [
+            {
+              "active": [],
+              "bench": [],
+              "benchMax": 5,
+              "deckCount": 60,
+              "discard": [],
+              "prize": [],
+              "handCount": 0,
+              "hand": [],
+              "poisoned": false,
+              "burned": false,
+              "asleep": false,
+              "paralyzed": false,
+              "confused": false
+            },
+            {
+              "active": [],
+              "bench": [],
+              "benchMax": 5,
+              "deckCount": 60,
+              "discard": [],
+              "prize": [],
+              "handCount": 0,
+              "hand": null,
+              "poisoned": false,
+              "burned": false,
+              "asleep": false,
+              "paralyzed": false,
+              "confused": false
+            }
+          ]
+        },
+        "search_begin_input": "AGEAjD/AGEAboqAGEAEB-+CB7-pIDw-UM8-fIB-VEQ-VBL-+BI-UBBCw*jiGgAEEAPI-KBQADE0AWQABhAG=="
+      },
+      "status": "DONE"
+    },
+    {
+      "action": null,
+      "reward": null,
+      "info": {},
+      "observation": {
+        "remainingOverageTime": 599.996699,
+        "select": {
+          "type": 1,
+          "context": 1,
+          "minCount": 1,
+          "maxCount": 1,
+          "remainDamageCounter": 0,
+          "remainEnergyCost": 0,
+          "option": [
+            {
+              "type": 3,
+              "area": 2,
+              "index": 1,
+              "playerIndex": 1
+            }
+          ],
+          "deck": null,
+          "contextCard": null,
+          "effect": null
+        },
+        "logs": [
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1213,
+            "serial": 89
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1,
+            "serial": 72
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1086,
+            "serial": 100
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1191,
+            "serial": 96
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1213,
+            "serial": 88
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1,
+            "serial": 74
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1086,
+            "serial": 101
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 1,
+            "playerIndex": 1,
+            "hasBasicPokemon": false
+          },
+          {
+            "type": 1,
+            "playerIndex": 0,
+            "hasBasicPokemon": false
+          },
+          {
+            "type": 6,
+            "playerIndex": 1,
+            "cardId": 1086,
+            "serial": 101,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 1,
+            "cardId": 1,
+            "serial": 74,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 1,
+            "cardId": 1213,
+            "serial": 88,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 1,
+            "cardId": 1191,
+            "serial": 96,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 1,
+            "cardId": 1086,
+            "serial": 100,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 1,
+            "cardId": 1,
+            "serial": 72,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 1,
+            "cardId": 1213,
+            "serial": 89,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 0,
+            "playerIndex": 1
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1116,
+            "serial": 112
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 96,
+            "serial": 66
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1121,
+            "serial": 105
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1192,
+            "serial": 92
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1086,
+            "serial": 99
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1083,
+            "serial": 119
+          },
+          {
+            "type": 4,
+            "playerIndex": 1,
+            "cardId": 1,
+            "serial": 79
+          },
+          {
+            "type": 6,
+            "playerIndex": 0,
+            "cardId": 1086,
+            "serial": 41,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 0,
+            "cardId": 1,
+            "serial": 18,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 0,
+            "cardId": 1123,
+            "serial": 48,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 0,
+            "cardId": 1,
+            "serial": 14,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 0,
+            "cardId": 1192,
+            "serial": 33,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 0,
+            "cardId": 1182,
+            "serial": 25,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 6,
+            "playerIndex": 0,
+            "cardId": 1,
+            "serial": 20,
+            "fromArea": 2,
+            "toArea": 1
+          },
+          {
+            "type": 0,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 5,
+            "playerIndex": 0
+          },
+          {
+            "type": 1,
+            "playerIndex": 1,
+            "hasBasicPokemon": true
+          },
+          {
+            "type": 1,
+            "playerIndex": 0,
+            "hasBasicPokemon": true
+          }
+        ],
+        "current": {
+          "turn": 0,
+          "turnActionCount": 2,
+          "yourIndex": 1,
+          "firstPlayer": 1,
+          "supporterPlayed": false,
+          "stadiumPlayed": false,
+          "energyAttached": false,
+          "retreated": false,
+          "result": -1,
+          "stadium": [],
+          "looking": null,
+          "players": [
+            {
+              "active": [],
+              "bench": [],
+              "benchMax": 5,
+              "deckCount": 53,
+              "discard": [],
+              "prize": [],
+              "handCount": 7,
+              "hand": null,
+              "poisoned": false,
+              "burned": false,
+              "asleep": false,
+              "paralyzed": false,
+              "confused": false
+            },
+            {
+              "active": [],
+              "bench": [],
+              "benchMax": 5,
+              "deckCount": 53,
+              "discard": [],
+              "prize": [],
+              "handCount": 7,
+              "hand": [
+                {
+                  "id": 1116,
+                  "serial": 112,
+                  "playerIndex": 1
+                },
+                {
+                  "id": 96,
+                  "serial": 66,
+                  "playerIndex": 1
+                },
+                {
+                  "id": 1121,
+                  "serial": 105,
+                  "playerIndex": 1
+                },
+                {
+                  "id": 1192,
+                  "serial": 92,
+                  "playerIndex": 1
+                },
+                {
+                  "id": 1086,
+                  "serial": 99,
+                  "playerIndex": 1
+                },
+                {
+                  "id": 1083,
+                  "serial": 119,
+                  "playerIndex": 1
+                },
+                {
+                  "id": 1,
+                  "serial": 79,
+                  "playerIndex": 1
+                }
+              ],
+              "poisoned": false,
+              "burned": false,
+              "asleep": false,
+              "paralyzed": false,
+              "confused": false
+            }
+          ]
+        },
+        "search_begin_input": "AGIAkBAGEAbICADBACEAEB-+CCl-PHH-ZBDU-5KBwADHBCaVxjd08-MB1-fIB-VEQ-VBL-+BI-UBBCw*3TDGAECR-VBQIB-3pBAElg-UBECABQ-2pqABQACJM-UBBABgE-2VD4EACCU-VBQIB-hSGEEACCS-VBQIB-2VBcBADk-VBECABQ-2VOwQACJU-UBBABgE-icQAEMACgABBACE-BBBAEGwAWQABdGQAVBABB5oAVQEABHlkAEBAPBABQABeAG=="
+      },
+      "status": "ERROR"
+    }
+  ]
+]

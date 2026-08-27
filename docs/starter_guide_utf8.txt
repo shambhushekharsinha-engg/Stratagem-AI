@@ -1,0 +1,35 @@
+﻿Topic #725195:  Beginner Guide: From Deck List to First Valid Submission (Feedback Welcome!)
+  Author: Andre Luiz Barbosa
+  Posted: 2026-07-14 20:10:23.590000
+  Votes: 1  Comments: 1
+
+Hi everyone!
+
+I've created a beginner-friendly guide to help newcomers get started with the Pokémon TCG AI Battle Challenge.
+
+Notebook: Andrehlb - Beginner Guide From Deck List to First Valid Submission
+
+What's covered:
+
+
+
+Setting up your environment
+
+Understanding the deck.csv structure
+
+Building your first agent (main.py)
+
+Creating and submitting the .tar.gz package
+
+Common pitfalls and how to avoid them
+
+
+This guide is aimed at those making their first submission. I'd love to hear your feedback and suggestions for improvement!
+
+Good luck to all competitors! 🎮
+
+Comments:
+├─ Andre Luiz Barbosa (2026-08-08 19:16:57.457000) [+0]
+│  Update — Aug 8, 2026
+│  The guide has continued to evolve based on my work in the competition.
+│  I now have a valid rule-based agent running in the Simulation leaderboard, and I’m working on a dedicated...
