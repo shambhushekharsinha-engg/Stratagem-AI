@@ -29,10 +29,36 @@ Energy cards are kept to the strict mathematical minimum required to power prima
 **Agent-Deck Alignment**
 A rule-based agent struggles with control or disruption archetypes because they require deep probabilistic planning. By pairing the agent with a linear, aggressively costed deck, we offload the strategic burden from the code to the cards. The mathematically optimal play becomes the most obvious one, enabling the priority stack detailed in §4 to execute flawlessly.
 
+To align with our findings on Tempo Dominance (H2), the deck was intentionally constructed to minimize setup friction and maximize immediate, uncompromised damage. *Ogerpon ex* and *Scyther* serve as highly efficient, low-energy attackers capable of trading prizes evenly. Crucially, the supporter engine-utilizing *Carmine* and *Judge*-was selected to aggressively churn through the deck and disrupt the opponent\'s hand state, leaning entirely into raw offensive pacing rather than slow, methodical bench-building.
+
 ### §4. Agent Design
 The heuristic agent utilizes a five-tier priority stack evaluated sequentially each turn. Priority 1 (Lethal KO) explicitly checks for an immediate game-winning attack, targeting the bench via *Boss's Orders* only if it secures the final prize. Priority 2 (Gust) evaluates the bench more broadly, seeking positive prize trades or KOs on vulnerable targets even if they do not end the game. Priority 3 (Active KO) checks for lethal damage on the opponent's Active Pokémon. Priority 4 (Retreat) evaluates if the agent's Active Pokémon is in lethal range of the opponent's projected maximum damage, swapping it for a safe bench target if true. Finally, Priority 5 serves as a fallback, executing setup actions or selecting the maximum damage attack.
 
+`mermaid
+graph TD
+    A[Turn Start] --> B{Priority 1: Lethal KO?}
+    B -->|Yes| C[Play Boss\'s Orders -> Win Game]
+    B -->|No| D{Priority 2: Gust EV?}
+    D -->|Yes| E[Play Boss\'s Orders -> Snipe Bench]
+    D -->|No| F{Priority 3: Active KO?}
+    F -->|Yes| G[Attack Active PokAcmon]
+    F -->|No| H{Priority 4: Lethal Danger?}
+    H -->|Yes| I[Retreat Wounded Active]
+    H -->|No| J[Priority 5: Max Damage Fallback]
+`
+
 Damage evaluation requires a bifurcated approach due to engine limitations. The `cabt` engine executes inside an opaque compiled library that scrubs move-level metadata from its serialized states. To solve this, boolean KO-checks (Priorities 1–3) dynamically parse `EN_Card_Data.csv` to calculate a Pokémon's maximum potential damage based on currently attached energy. However, final attack selection must assume ascending `attackId` integers map to ascending base damage—an unavoidable inference required to bridge the engine's opaque option arrays back to the parsed CSV data.
+
+To bridge the engine\'s opaque option arrays back to measurable game states, we implemented a custom damage projector. Rather than relying on the engine\'s scrubbed metadata, the agent dynamically parses the raw CSV to calculate true lethal thresholds:
+
+`python
+def get_opp_max_dmg(obs, player_id):
+    opp_active = obs.m_obs[1 - player_id].m_active
+    if opp_active.name == "None":
+        return 0
+    energy_count = len(opp_active.attached_energy)
+    return max([move.damage for move in opp_active.moves if move.cost <= energy_count], default=0)
+`
 
 ### §5. Hypothesis Results
 
