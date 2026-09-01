@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stratagem: Advanced Heuristic Sequencing vs. Tempo in PTCG</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
     <style>
+        :root {
+            --bg-color: #0b0f19;
+            --surface-color: rgba(30, 41, 59, 0.7);
+            --accent: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.4);
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+        }
         body { 
             margin: 0; 
-            font-family: 'Inter', sans-serif; 
-            background-color: #0f172a; 
-            color: #cbd5e1; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
             display: flex; 
             justify-content: center; 
+            background-image: radial-gradient(circle at top center, #1e293b 0%, transparent 50%);
         }
         .container { 
             display: flex; 
@@ -23,49 +32,118 @@
             gap: 60px; 
             padding: 0 20px; 
         }
+        /* Sticky Sidebar with Glassmorphism */
         .sidebar { 
             width: 250px; 
             position: sticky; 
             top: 40px; 
             height: max-content; 
+            background: var(--surface-color);
+            backdrop-filter: blur(12px);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: slideRight 0.8s ease-out forwards;
         }
+        .sidebar h3 { margin-top: 0; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
         .sidebar a { 
             display: block; 
-            color: #64748b; 
+            color: var(--text-muted); 
             text-decoration: none; 
-            padding: 8px 0; 
+            padding: 10px 0; 
             font-size: 14px; 
-            border-left: 2px solid #334155; 
+            border-left: 2px solid transparent; 
             padding-left: 15px; 
-            transition: 0.2s; 
+            transition: all 0.3s ease; 
         }
         .sidebar a:hover { 
-            color: #38bdf8; 
-            border-left-color: #38bdf8; 
+            color: var(--accent); 
+            border-left-color: var(--accent); 
+            transform: translateX(5px);
+            text-shadow: 0 0 8px var(--accent-glow);
         }
+        /* Content Animations */
         .content { 
             flex: 1; 
             max-width: 800px; 
             padding-bottom: 100px; 
             line-height: 1.8; 
             font-size: 16px; 
+            animation: slideUp 0.8s ease-out forwards;
         }
-        h1, h2, h3, h4 { color: #f8fafc; margin-top: 40px; }
-        h1 { font-size: 2.2em; border-bottom: 1px solid #334155; padding-bottom: 10px; }
-        h2 { font-size: 1.8em; }
-        a { color: #38bdf8; text-decoration: none; }
-        pre { background: #1e293b; padding: 20px; border-radius: 8px; overflow-x: auto; border: 1px solid #334155;}
-        code { font-family: monospace; background: #1e293b; padding: 2px 6px; border-radius: 4px; color: #38bdf8;}
+        /* Beautiful Typography */
+        h1, h2, h3, h4 { color: #fff; margin-top: 50px; }
+        h1 { font-size: 2.2em; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        h2 { font-size: 1.8em; background: -webkit-linear-gradient(45deg, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        a { color: var(--accent); text-decoration: none; transition: 0.2s; }
+        a:hover { text-shadow: 0 0 10px var(--accent-glow); }
+        /* 3D Code Blocks */
+        pre { 
+            background: #111827; 
+            padding: 20px; 
+            border-radius: 12px; 
+            overflow-x: auto; 
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 10px 20px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        pre:hover { transform: translateY(-2px); box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 15px 30px rgba(0,0,0,0.5); }
+        code { font-family: 'Fira Code', monospace; background: #1e293b; padding: 2px 6px; border-radius: 4px; color: var(--accent);}
         pre code { color: inherit; background: transparent; padding: 0; }
-        table { width: 100%; border-collapse: collapse; margin: 30px 0; font-size: 14px; }
-        th, td { border: 1px solid #334155; padding: 15px; text-align: left; }
-        th { background-color: #1e293b; color: #f8fafc; font-weight: 600; }
-        blockquote { border-left: 4px solid #38bdf8; padding-left: 20px; margin-left: 0; color: #94a3b8; font-style: italic; }
-        .hero { text-align: center; margin-bottom: 60px; padding: 40px 0; border-bottom: 1px solid #334155; }
-        .hero h1 { border: none; font-size: 3em; margin-bottom: 15px; background: -webkit-linear-gradient(45deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 1.2em; color: #94a3b8; }
-        .mermaid { display: flex; justify-content: center; background: #1e293b; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid #334155;}
+        /* Tables */
+        table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 30px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        th, td { padding: 15px; text-align: left; background: rgba(30, 41, 59, 0.5); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        th { background-color: rgba(56, 189, 248, 0.1); color: var(--accent); font-weight: 800; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;}
+        /* Hero Section */
+        .hero { text-align: center; margin-bottom: 60px; padding: 60px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .hero h1 { 
+            border: none; 
+            font-size: 3.5em; 
+            margin-bottom: 15px; 
+            background: -webkit-linear-gradient(45deg, #38bdf8, #818cf8, #c084fc); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.3));
+        }
+        .hero p { font-size: 1.3em; color: var(--text-muted); }
+        /* 3D Animated Button */
+        .btn-3d {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 800;
+            color: #0b0f19 !important;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 0 #2563eb, 0 15px 20px rgba(37, 99, 235, 0.4);
+            transition: all 0.15s ease;
+            cursor: pointer;
+        }
+        .btn-3d:hover {
+            transform: translateY(2px);
+            box-shadow: 0 4px 0 #2563eb, 0 10px 15px rgba(37, 99, 235, 0.4);
+            text-shadow: none;
+        }
+        .btn-3d:active {
+            transform: translateY(6px);
+            box-shadow: 0 0 0 #2563eb, 0 5px 10px rgba(37, 99, 235, 0.4);
+        }
+        /* Diagram */
+        .mermaid { display: flex; justify-content: center; background: rgba(30, 41, 59, 0.3); padding: 20px; border-radius: 12px; margin: 30px 0; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.3);}
         
+        /* Keyframes */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideRight {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
         @media (max-width: 900px) {
             .container { flex-direction: column; }
             .sidebar { display: none; }
@@ -75,16 +153,25 @@
 <body>
     <div class="container">
         <nav class="sidebar" id="toc">
-            <h3 style="padding-left: 15px; margin-top:0;">Table of Contents</h3>
+            <h3>Table of Contents</h3>
         </nav>
         <main class="content">
             <div class="hero">
                 <h1>Stratagem-AI</h1>
                 <p>Advanced Heuristic Sequencing vs. Tempo in the Pokémon TCG</p>
+                <a href="https://github.com/shambhushekharsinha-engg/Stratagem-AI" target="_blank" class="btn-3d">View on GitHub</a>
             </div>
-            <div id="paper-content">Loading research paper...</div>
+            <div id="paper-content">
+                <div style="text-align: center; color: #38bdf8; padding: 50px;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 1s linear infinite;">
+                        <circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path>
+                    </svg>
+                    <p>Loading Research Data...</p>
+                </div>
+            </div>
         </main>
     </div>
+    <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
@@ -97,7 +184,6 @@
             .then(async text => {
                 const renderer = new marked.Renderer();
                 
-                // Override code block rendering to catch Mermaid diagrams
                 renderer.code = function(code, lang) {
                     if (lang === 'mermaid') {
                         return '<div class="mermaid">' + code + '</div>';
@@ -106,31 +192,20 @@
                 };
 
                 document.getElementById('paper-content').innerHTML = marked.parse(text, { renderer: renderer });
-                
-                // Apply syntax highlighting to Python code
                 hljs.highlightAll();
-
-                // Render the Mermaid flowchart visually
                 await mermaid.run({ querySelector: '.mermaid' });
 
-                // Generate dynamic Table of Contents
                 const toc = document.getElementById('toc');
                 const headers = document.querySelectorAll('#paper-content h1, #paper-content h2, #paper-content h3');
                 headers.forEach((h, i) => {
                     h.id = 'header-' + i;
                     const a = document.createElement('a');
                     a.href = '#' + h.id;
-                    a.textContent = h.textContent.replace(/A \d+\./g, '').trim(); // Clean up odd chars if any
-                    
+                    a.textContent = h.textContent.replace(/A \d+\./g, '').trim(); 
                     if (h.tagName === 'H2') a.style.paddingLeft = '15px';
                     if (h.tagName === 'H3') a.style.paddingLeft = '30px';
-                    
                     toc.appendChild(a);
                 });
-            })
-            .catch(err => {
-                document.getElementById('paper-content').innerHTML = "Error loading the paper.";
-                console.error(err);
             });
     </script>
 </body>
