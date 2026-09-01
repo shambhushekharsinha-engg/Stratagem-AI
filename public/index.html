@@ -6,125 +6,144 @@
     <title>Stratagem: Advanced Heuristic Sequencing vs. Tempo in PTCG</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    
+    <!-- Dependencies for Wow-Factor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <style>
         :root {
             --bg-color: #0b0f19;
             --surface-color: rgba(30, 41, 59, 0.7);
             --accent: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.4);
+            --accent-glow: rgba(56, 189, 248, 0.5);
             --text-main: #e2e8f0;
             --text-muted: #94a3b8;
         }
         body { 
-            margin: 0; 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: var(--bg-color); 
-            color: var(--text-main); 
-            display: flex; 
-            justify-content: center; 
-            background-image: radial-gradient(circle at top center, #1e293b 0%, transparent 50%);
+            margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--bg-color); color: var(--text-main); 
+            display: flex; justify-content: center; overflow-x: hidden;
         }
-        .container { display: flex; max-width: 1200px; width: 100%; margin-top: 40px; gap: 60px; padding: 0 20px; }
+        
+        /* Ambient Background Orbs */
+        .bg-orb { position: fixed; border-radius: 50%; filter: blur(100px); z-index: -1; opacity: 0.35; animation: float 12s infinite alternate; }
+        .orb-1 { width: 400px; height: 400px; background: #38bdf8; top: -100px; left: -100px; }
+        .orb-2 { width: 500px; height: 500px; background: #c084fc; bottom: -150px; right: -100px; animation-direction: alternate-reverse; animation-duration: 15s;}
+        @keyframes float { 0% { transform: translateY(0px) scale(1); } 100% { transform: translateY(60px) scale(1.1); } }
+
+        /* Reading Progress Bar */
+        #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc); width: 0%; z-index: 9999; box-shadow: 0 0 10px rgba(192, 132, 252, 0.8);}
+
+        .container { display: flex; max-width: 1200px; width: 100%; margin-top: 40px; gap: 60px; padding: 0 20px; z-index: 1;}
         
         /* Sidebar */
         .sidebar { 
             width: 250px; position: sticky; top: 40px; height: max-content; 
-            background: var(--surface-color); backdrop-filter: blur(12px);
+            background: var(--surface-color); backdrop-filter: blur(16px);
             padding: 20px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); animation: slideRight 0.8s ease-out forwards;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5); animation: slideRight 0.8s ease-out forwards;
         }
-        .sidebar h3 { margin-top: 0; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .sidebar h3 { margin-top: 0; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-size: 1.1em;}
         .sidebar a { display: block; color: var(--text-muted); text-decoration: none; padding: 10px 0; font-size: 14px; border-left: 2px solid transparent; padding-left: 15px; transition: all 0.3s ease; }
-        .sidebar a:hover { color: var(--accent); border-left-color: var(--accent); transform: translateX(5px); text-shadow: 0 0 8px var(--accent-glow); }
+        .sidebar a:hover, .sidebar a.active { color: var(--accent); border-left-color: var(--accent); transform: translateX(5px); text-shadow: 0 0 10px var(--accent-glow); }
         
-        /* Content Animations */
         .content { flex: 1; max-width: 800px; padding-bottom: 100px; animation: slideUp 0.8s ease-out forwards; }
         
         /* Premium Text Styling */
-        #paper-content p { font-size: 1.15rem; line-height: 1.9; color: #cbd5e1; margin-bottom: 25px; font-weight: 400; letter-spacing: 0.2px; }
-        #paper-content strong { color: #38bdf8; font-weight: 800; text-shadow: 0 0 12px rgba(56, 189, 248, 0.4); }
-        #paper-content em { color: #818cf8; font-style: normal; font-weight: 600; background: rgba(129, 140, 248, 0.1); padding: 2px 6px; border-radius: 6px; }
+        #paper-content p { font-size: 1.15rem; line-height: 1.9; color: #cbd5e1; margin-bottom: 25px; }
+        #paper-content strong { color: #fff; font-weight: 800; text-shadow: 0 0 15px rgba(255, 255, 255, 0.3); background: rgba(255,255,255,0.1); padding: 0 4px; border-radius: 4px;}
+        #paper-content em { color: #818cf8; font-style: normal; font-weight: 600; }
         
-        /* Blockquotes as Glass Cards */
+        /* Glass Blockquotes */
         #paper-content blockquote { 
-            background: linear-gradient(90deg, rgba(30, 41, 59, 0.8), rgba(30, 41, 59, 0.2)); 
-            border-left: 4px solid #38bdf8; 
-            padding: 25px 25px 25px 30px; 
-            border-radius: 0 12px 12px 0; 
-            font-style: normal; 
-            margin: 40px 0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            position: relative;
-        }
-        #paper-content blockquote p { margin: 0; color: #e2e8f0; font-size: 1.2rem; }
-        
-        /* Beautiful Custom Lists */
-        #paper-content ul, #paper-content ol { list-style: none; padding-left: 0; margin-bottom: 30px; }
-        #paper-content li { position: relative; padding-left: 30px; margin-bottom: 15px; font-size: 1.15rem; color: #cbd5e1; line-height: 1.7; }
-        #paper-content ul li::before { 
-            content: "✦"; position: absolute; left: 0; top: 2px;
-            color: #818cf8; font-size: 1.2rem; filter: drop-shadow(0 0 5px #818cf8);
+            background: linear-gradient(90deg, rgba(30, 41, 59, 0.9), rgba(30, 41, 59, 0.2)); 
+            border-left: 4px solid #38bdf8; padding: 25px; border-radius: 0 12px 12px 0; 
+            margin: 40px 0; box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
         
-        /* Headers */
-        h1, h2, h3, h4 { color: #fff; margin-top: 60px; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.5px; }
+        #paper-content ul { list-style: none; padding-left: 0; }
+        #paper-content li { position: relative; padding-left: 30px; margin-bottom: 15px; font-size: 1.15rem; color: #cbd5e1; }
+        #paper-content ul li::before { content: "✦"; position: absolute; left: 0; color: #818cf8; font-size: 1.2rem; filter: drop-shadow(0 0 8px #818cf8); }
+        
+        h1, h2, h3 { color: #fff; margin-top: 60px; font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.5px; }
         h1 { font-size: 2.5em; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
-        h2 { 
-            font-size: 2em; 
-            background: -webkit-linear-gradient(45deg, #fff, #94a3b8); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-            position: relative;
-            padding-bottom: 15px;
-        }
-        h2::after {
-            content: ''; position: absolute; left: 0; bottom: 0; height: 4px; width: 60px;
-            background: linear-gradient(90deg, #38bdf8, #818cf8); border-radius: 4px;
-            box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
-        }
-        
-        a { color: var(--accent); text-decoration: none; transition: 0.2s; font-weight: 600; }
-        a:hover { text-shadow: 0 0 10px var(--accent-glow); }
+        h2 { font-size: 2em; background: -webkit-linear-gradient(45deg, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        a { color: var(--accent); text-decoration: none; font-weight: 600; }
         
         /* 3D Code Blocks */
         pre { 
-            background: #0b0f19; padding: 25px; border-radius: 12px; overflow-x: auto; 
-            border: 1px solid rgba(255,255,255,0.05);
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 15px 30px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease; margin: 30px 0;
+            background: #050811; padding: 25px; border-radius: 12px; overflow-x: auto; 
+            border: 1px solid rgba(255,255,255,0.08); box-shadow: inset 0 2px 10px rgba(0,0,0,0.8), 0 20px 40px rgba(0,0,0,0.5);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); margin: 30px 0;
         }
-        pre:hover { transform: translateY(-4px); box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 0 20px 40px rgba(0,0,0,0.5); }
+        pre:hover { transform: translateY(-5px) scale(1.01); box-shadow: inset 0 2px 10px rgba(0,0,0,0.8), 0 25px 50px rgba(0,0,0,0.7); }
         code { font-family: 'Fira Code', monospace; background: rgba(30, 41, 59, 0.8); padding: 4px 8px; border-radius: 6px; color: var(--accent); font-size: 0.9em;}
-        pre code { color: inherit; background: transparent; padding: 0; font-size: 1em; }
+        pre code { background: transparent; padding: 0; font-size: 1em; }
         
-        /* Tables */
+        /* Modern Tables */
         table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 40px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
         th, td { padding: 18px; text-align: left; background: rgba(30, 41, 59, 0.6); border-bottom: 1px solid rgba(255,255,255,0.05); }
-        th { background: linear-gradient(90deg, rgba(56, 189, 248, 0.1), rgba(129, 140, 248, 0.1)); color: var(--accent); font-weight: 800; text-transform: uppercase; font-size: 13px; letter-spacing: 1.5px;}
+        th { background: linear-gradient(90deg, rgba(56, 189, 248, 0.15), rgba(129, 140, 248, 0.15)); color: var(--accent); font-weight: 800; text-transform: uppercase; font-size: 13px; letter-spacing: 1.5px;}
         tr:hover td { background: rgba(30, 41, 59, 0.9); }
         
-        /* Hero Section */
-        .hero { text-align: center; margin-bottom: 80px; padding: 60px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .hero h1 { 
-            border: none; font-size: 4em; margin-bottom: 20px; 
+        /* --- Hero Section & Holographic Card --- */
+        .hero { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 60px; padding: 60px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        
+        /* Holographic Card Wrapper */
+        .foil-card {
+            width: 100%; max-width: 600px;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            border-radius: 24px; padding: 50px 30px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.1);
+            position: relative; overflow: hidden; margin-bottom: 40px;
+            transform-style: preserve-3d;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        /* The Holographic Glare */
+        .foil-card::before {
+            content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.15) 30%, transparent 40%);
+            mix-blend-mode: color-dodge; pointer-events: none; transition: transform 0.6s ease;
+            transform: translateZ(20px) rotate(45deg);
+        }
+        .foil-card:hover::before { transform: translateZ(20px) rotate(45deg) translate(50%, 50%); }
+
+        .foil-card h1 { 
+            border: none; font-size: 4em; margin: 0 0 15px 0; 
             background: -webkit-linear-gradient(45deg, #38bdf8, #818cf8, #c084fc); 
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
-            filter: drop-shadow(0 0 30px rgba(56, 189, 248, 0.4));
+            filter: drop-shadow(0 0 30px rgba(56, 189, 248, 0.5));
+            transform: translateZ(40px); /* 3D pop */
         }
-        .hero p { font-size: 1.4em; color: var(--text-muted); font-weight: 400; margin-bottom: 40px; }
+        .foil-card p { font-size: 1.4em; color: var(--text-muted); font-weight: 400; margin: 0; transform: translateZ(30px); }
         
-        /* 3D Animated Button */
+        /* Terminal Typing Effect */
+        .terminal-box {
+            background: #050811; border: 1px solid #334155; border-radius: 8px;
+            padding: 15px; margin-top: 30px; transform: translateZ(25px);
+            font-family: 'Fira Code', monospace; color: #10b981; font-size: 0.9em; text-align: left;
+            box-shadow: inset 0 0 10px rgba(0,0,0,1);
+        }
+        .typewriter { overflow: hidden; white-space: nowrap; border-right: 2px solid #10b981; animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite; }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #10b981; } }
+
         .btn-3d {
             display: inline-block; padding: 16px 40px; font-size: 16px; font-weight: 800; color: #0b0f19 !important;
             background: linear-gradient(135deg, #38bdf8, #818cf8); border-radius: 50px; text-transform: uppercase; letter-spacing: 1.5px;
-            box-shadow: 0 6px 0 #2563eb, 0 15px 25px rgba(37, 99, 235, 0.5); transition: all 0.15s ease; cursor: pointer;
+            box-shadow: 0 6px 0 #2563eb, 0 15px 25px rgba(37, 99, 235, 0.5); transition: all 0.15s ease; cursor: pointer; text-decoration: none;
         }
-        .btn-3d:hover { transform: translateY(2px); box-shadow: 0 4px 0 #2563eb, 0 10px 15px rgba(37, 99, 235, 0.5); text-shadow: none; }
+        .btn-3d:hover { transform: translateY(2px); box-shadow: 0 4px 0 #2563eb, 0 10px 15px rgba(37, 99, 235, 0.5); }
         .btn-3d:active { transform: translateY(6px); box-shadow: 0 0 0 #2563eb, 0 5px 10px rgba(37, 99, 235, 0.5); }
         
-        /* Diagram */
+        /* Interactive Data Dashboard (Chart) */
+        .dashboard-panel {
+            background: rgba(30, 41, 59, 0.5); border-radius: 16px; padding: 30px; margin: 40px 0;
+            border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
         .mermaid { display: flex; justify-content: center; background: rgba(30, 41, 59, 0.4); padding: 30px; border-radius: 16px; margin: 40px 0; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 15px 40px rgba(0,0,0,0.4); transition: transform 0.3s ease;}
-        .mermaid:hover { transform: scale(1.02); }
         
         @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideRight { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
@@ -132,27 +151,35 @@
     </style>
 </head>
 <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div id="progress-bar"></div>
+
     <div class="container">
         <nav class="sidebar" id="toc">
             <h3>Table of Contents</h3>
         </nav>
         <main class="content">
             <div class="hero">
-                <h1>Stratagem-AI</h1>
-                <p>Advanced Heuristic Sequencing vs. Tempo in the Pokémon TCG</p>
-                <a href="https://github.com/shambhushekharsinha-engg/Stratagem-AI" target="_blank" class="btn-3d">View on GitHub</a>
+                <!-- 3D Holographic Card -->
+                <div class="foil-card" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.3">
+                    <h1>Stratagem-AI</h1>
+                    <p>Advanced Heuristic Sequencing<br>vs. Tempo in PTCG</p>
+                    <div class="terminal-box">
+                        <div class="typewriter">> Executing 1000-game Simulation...</div>
+                        <div style="color: #64748b; margin-top: 5px;">> Resolving Cabt Engine states... [OK]</div>
+                    </div>
+                </div>
+                <a href="https://github.com/shambhushekharsinha-engg/Stratagem-AI" target="_blank" class="btn-3d">View Kaggle Source Code</a>
             </div>
+            
             <div id="paper-content">
                 <div style="text-align: center; color: #38bdf8; padding: 80px;">
-                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 1s linear infinite;">
-                        <circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path>
-                    </svg>
-                    <p style="font-size: 1.2rem; margin-top: 20px;">Rendering Research Paper...</p>
+                    <p style="font-size: 1.2rem; font-weight: 600;">Loading Kaggle Research Data...</p>
                 </div>
             </div>
         </main>
     </div>
-    <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
@@ -160,15 +187,20 @@
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
         mermaid.initialize({ startOnLoad: false, theme: 'dark' });
 
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById('progress-bar').style.width = (winScroll / height) * 100 + "%";
+        });
+
         fetch('PAPER.md')
             .then(response => response.text())
             .then(async text => {
                 const renderer = new marked.Renderer();
                 
                 renderer.code = function(code, lang) {
-                    if (lang === 'mermaid') {
-                        return '<div class="mermaid">' + code + '</div>';
-                    }
+                    if (lang === 'mermaid') return '<div class="mermaid">' + code + '</div>';
                     return marked.Renderer.prototype.code.apply(this, arguments);
                 };
 
@@ -176,6 +208,7 @@
                 hljs.highlightAll();
                 await mermaid.run({ querySelector: '.mermaid' });
 
+                // TOC Generation
                 const toc = document.getElementById('toc');
                 const headers = document.querySelectorAll('#paper-content h1, #paper-content h2, #paper-content h3');
                 headers.forEach((h, i) => {
@@ -187,7 +220,60 @@
                     if (h.tagName === 'H3') a.style.paddingLeft = '30px';
                     toc.appendChild(a);
                 });
+
+                // Inject Interactive Chart Dashboard
+                injectChart();
             });
+
+        function injectChart() {
+            // Find the Hypothesis Results header to inject the chart below it
+            const contentDiv = document.getElementById('paper-content');
+            
+            const dashboardHTML = 
+                <div class="dashboard-panel">
+                    <h3 style="margin-top: 0; text-align: center;">Live Win-Rate Dashboard (1,000 Games)</h3>
+                    <canvas id="winRateChart" height="100"></canvas>
+                </div>
+            ;
+            
+            // Append at the end of section 5 roughly (or just end of document)
+            contentDiv.insertAdjacentHTML('beforeend', dashboardHTML);
+            
+            const ctx = document.getElementById('winRateChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Heuristic (H1)', 'No-Gust (H3)', 'Greedy Baseline'],
+                    datasets: [{
+                        label: 'Win Rate %',
+                        data: [40.9, 41.2, 59.1],
+                        backgroundColor: [
+                            'rgba(244, 63, 94, 0.7)',  // Red
+                            'rgba(244, 63, 94, 0.7)',  // Red
+                            'rgba(16, 185, 129, 0.8)'   // Green
+                        ],
+                        borderColor: [
+                            'rgba(244, 63, 94, 1)',
+                            'rgba(244, 63, 94, 1)',
+                            'rgba(16, 185, 129, 1)'
+                        ],
+                        borderWidth: 2,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { beginAtZero: true, max: 100, ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        x: { ticks: { color: '#e2e8f0', font: {size: 14, weight: 'bold'} }, grid: { display: false } }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { backgroundColor: '#1e293b', titleFont: {size: 16}, bodyFont: {size: 14}, padding: 15 }
+                    }
+                }
+            });
+        }
     </script>
 </body>
 </html>
