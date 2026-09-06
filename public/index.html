@@ -229,12 +229,12 @@
             // Find the Hypothesis Results header to inject the chart below it
             const contentDiv = document.getElementById('paper-content');
             
-            const dashboardHTML = 
+            const dashboardHTML = `
                 <div class="dashboard-panel">
                     <h3 style="margin-top: 0; text-align: center;">Live Win-Rate Dashboard (1,000 Games)</h3>
                     <canvas id="winRateChart" height="100"></canvas>
                 </div>
-            ;
+            `;
             
             // Append at the end of section 5 roughly (or just end of document)
             contentDiv.insertAdjacentHTML('beforeend', dashboardHTML);
@@ -246,7 +246,7 @@
                     labels: ['Heuristic (H1)', 'No-Gust (H3)', 'Greedy Baseline'],
                     datasets: [{
                         label: 'Win Rate %',
-                        data: [40.9, 41.2, 59.1],
+                        data: [35.7, 36.0, 64.3],
                         backgroundColor: [
                             'rgba(244, 63, 94, 0.7)',  // Red
                             'rgba(244, 63, 94, 0.7)',  // Red
