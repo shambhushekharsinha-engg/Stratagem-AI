@@ -5,8 +5,8 @@ import random
 
 from greedy_agent import greedy_agent
 from heuristic_agent import agent as heuristic_agent
-from midrange_agent import midrange_agent
-from control_agent import control_agent
+from midrange_agent import greedy_agent as midrange_agent
+from control_agent import greedy_agent as control_agent
 
 try:
     from kaggle_environments import make
