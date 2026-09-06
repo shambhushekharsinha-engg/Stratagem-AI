@@ -70,6 +70,7 @@ This outcome strongly supports H2 (Tempo Dominance). In highly lethal, aggressiv
 **H3: Gust Expected Value (EV) Isolation**
 To isolate the exact EV of Priority 2, we ran a 1,000-game ±/B test matching a No-Gust heuristic variant against the greedy baseline. The No-Gust variant recorded a **36.0% win rate** (± 3.0% at 95% CI, with exactly 0 Gusts fired). Compared to the standard 35.7% baseline (which fired 110 successful Gusts), the difference is statistically indistinguishable (standard error of the difference ~2.2%). Bypassing the ±ctive Pokémon to snipe the bench provided no statistically measurable EV, largely because executing a Gust consumes the turn's single Supporter action (*Boss's Orders*), sacrificing critical setup power.
 
+
 **H5: Cross-Archetype Robustness (Matchup Diversity)**
 To evaluate if the heuristic's failure was a universal strategic flaw or an artifact of the symmetric tempo mirror, we conducted a cross-archetype robustness test (H5). We pitted our heuristic aggro agent against the greedy baseline operating two distinct alternative archetypes: an Evolution/Spread deck (*Dragapult ex*) and a Control/Stall deck (*Slowking*). To eliminate positional bias, the 1,000-game batches were symmetrically seeded (500 games as Player 1, 500 games as Player 2).
 
