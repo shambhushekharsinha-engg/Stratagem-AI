@@ -2,12 +2,12 @@
 
 OPTIMAL_DECK = (
     [162]*4 + [163]*4 +           # Slowpoke, Slowking
-    [7]*12 +                      # 12x Darkness Energy
+    [5]*16 +                      # 16x Psychic Energy (Fixed from Darkness)
     [1182]*4 + [1213]*4 +         # Boss's Orders, Judge
     [1192]*4 + [1191]*4 +         # Carmine, Kieran
     [1086]*4 + [1121]*4 +         # Buddy-Buddy Poffin, Ultra Ball
     [1123]*4 + [1116]*4 +         # Switch, Energy Switch
-    [1077]*4 + [1083]*4           # Roto-Stick, Love Ball (Total 60)
+    [1077]*4                      # Roto-Stick (Total 36 Trainers, 60 overall)
 )
 def greedy_agent(obs, config):
     if obs.step == 0:
