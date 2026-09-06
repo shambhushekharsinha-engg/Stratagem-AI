@@ -76,9 +76,9 @@ To evaluate if the heuristic's failure was a universal strategic flaw or an arti
 
 | Test | Environment | N | Heuristic WR | Baseline WR | 95% CI | Result |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| H1 | Aggro Mirror | 1,000 | 35.7% | 64.3% | ±3.0% | Baseline Wins |
-| H5a | Evolution/Spread | 1,000 | 51.3% | 48.7% | ±3.1% | No Distinguishable Advantage |
-| H5b | Control/Stall | 1,000 | 49.0% | 51.0% | ±3.1% | No Distinguishable Advantage |
+| H1 | Aggro Mirror | 1,000 | 35.7% | 64.3% | ±±± 3.0% | Baseline Wins |
+| H5a | Evolution/Spread | 1,000 | 51.3% | 48.7% | ±±± 3.1% | No Distinguishable Advantage |
+| H5b | Control/Stall | 1,000 | 49.0% | 51.0% | ±±± 3.1% | No Distinguishable Advantage |
 
 **Findings:** The data establishes a substantial environmental dependency. The heuristic's disadvantage is substantially larger in the tested Aggro Mirror than in the two alternative environments, where no statistically distinguishable advantage was detected for either policy. 
 
