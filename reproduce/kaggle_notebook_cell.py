@@ -10,9 +10,7 @@ import os
 
 _CARD_DICT = {}
 try:
-    import glob
-        csv_paths = glob.glob('/kaggle/input/**/EN_Card_Data.csv', recursive=True)
-        csv_path = csv_paths[0] if csv_paths else 'EN_Card_Data.csv'
+    csv_path = os.path.join(os.path.dirname(__file__), 'data', 'EN_Card_Data.csv')
     with open(csv_path, 'r', encoding='utf-8-sig') as f:
         reader = csv.DictReader(f)
         for row in reader:
@@ -412,6 +410,7 @@ def agent(obs, config):
 heuristic_agent = agent
 
 # ----------------- GREEDY AGENT -----------------
+import random
 
 OPTIMAL_DECK = (
     [96]*4 + [916]*4 +      # Teal Mask Ogerpon ex (96), Scyther (916)
@@ -423,68 +422,6 @@ OPTIMAL_DECK = (
     [1077]*4 + [1083]*4     # Roto-Stick, Love Ball
 )
 
-def control_agent(obs, config):
-    if obs.step == 0:
-        return OPTIMAL_DECK
-    
-    select = obs.get('select', {})
-    options = select.get('option', [])
-    if not options:
-        return []
-
-    current = obs.get('current', {})
-
-    if select.get('type') in [1, 9]:
-        def setup_score(opt):
-            idx = opt.get('index') if 'index' in opt else opt.get('type')
-            hand = current.get('players', [{}, {}])[current.get('yourIndex', 0)].get('hand', [])
-            if idx is not None and idx < len(hand):
-                card = hand[idx]
-                cid = card.get('id') if isinstance(card, dict) else card
-                if cid == 96: return 100
-                if cid == 916: return 50
-            return 0
-            
-        scored_opts = sorted([(setup_score(opt), i) for i, opt in enumerate(options)], reverse=True)
-        min_req = select.get('minCount', 1)
-        if scored_opts:
-            return [idx for score, idx in scored_opts[:min_req]]
-        return list(range(min(min_req, len(options))))
-
-    def is_attack_option(opt):
-        return opt.get('type') == 13
-
-    # 1. Attach energy if available
-    for i, opt in enumerate(options):
-        if opt.get('type') == 8:
-            return [i]
-
-    # 2. Maximize damage (Pick highest attackId, which correlates to higher damage/energy requirements in CABT)
-    max_atk_id = -1
-    best_opt = None
-    for i, opt in enumerate(options):
-        if is_attack_option(opt):
-            atk_id = opt.get('attackId', 0)
-            if atk_id > max_atk_id:
-                max_atk_id = atk_id
-                best_opt = i
-                
-    if best_opt is not None:
-        return [best_opt]
-        
-    return [random.randrange(len(options))]
-
-# ----------------- MIDRANGE AGENT -----------------
-
-OPTIMAL_DECK = (
-    [119]*4 + [120]*4 + [121]*4 + # Dreepy, Drakloak, Dragapult ex
-    [2]*6 + [5]*6 +               # 6x Fire, 6x Psychic Energy
-    [1182]*4 + [1213]*4 +         # Boss's Orders, Judge
-    [1192]*4 + [1191]*4 +         # Carmine, Kieran
-    [1086]*4 + [1121]*4 +         # Buddy-Buddy Poffin, Ultra Ball
-    [1123]*4 + [1116]*4 +         # Switch, Energy Switch
-    [1077]*4                      # Roto-Stick (Total 60)
-)
 def greedy_agent(obs, config):
     if obs.step == 0:
         return OPTIMAL_DECK
@@ -536,128 +473,17 @@ def greedy_agent(obs, config):
         
     return [random.randrange(len(options))]
 
-
-# ----------------- CONTROL AGENT -----------------
-
-OPTIMAL_DECK = (
-    [162]*4 + [163]*4 +           # Slowpoke, Slowking
-    [5]*16 +                      # 16x Psychic Energy (Fixed from Darkness)
-    [1182]*4 + [1213]*4 +         # Boss's Orders, Judge
-    [1192]*4 + [1191]*4 +         # Carmine, Kieran
-    [1086]*4 + [1121]*4 +         # Buddy-Buddy Poffin, Ultra Ball
-    [1123]*4 + [1116]*4 +         # Switch, Energy Switch
-    [1077]*4                      # Roto-Stick (Total 36 Trainers, 60 overall)
-)
-def greedy_agent(obs, config):
-    if obs.step == 0:
-        return OPTIMAL_DECK
-    
-    select = obs.get('select', {})
-    options = select.get('option', [])
-    if not options:
-        return []
-
-    current = obs.get('current', {})
-
-    if select.get('type') in [1, 9]:
-        def setup_score(opt):
-            idx = opt.get('index') if 'index' in opt else opt.get('type')
-            hand = current.get('players', [{}, {}])[current.get('yourIndex', 0)].get('hand', [])
-            if idx is not None and idx < len(hand):
-                card = hand[idx]
-                cid = card.get('id') if isinstance(card, dict) else card
-                if cid == 96: return 100
-                if cid == 916: return 50
-            return 0
-            
-        scored_opts = sorted([(setup_score(opt), i) for i, opt in enumerate(options)], reverse=True)
-        min_req = select.get('minCount', 1)
-        if scored_opts:
-            return [idx for score, idx in scored_opts[:min_req]]
-        return list(range(min(min_req, len(options))))
-
-    def is_attack_option(opt):
-        return opt.get('type') == 13
-
-    # 1. Attach energy if available
-    for i, opt in enumerate(options):
-        if opt.get('type') == 8:
-            return [i]
-
-    # 2. Maximize damage (Pick highest attackId, which correlates to higher damage/energy requirements in CABT)
-    max_atk_id = -1
-    best_opt = None
-    for i, opt in enumerate(options):
-        if is_attack_option(opt):
-            atk_id = opt.get('attackId', 0)
-            if atk_id > max_atk_id:
-                max_atk_id = atk_id
-                best_opt = i
-                
-    if best_opt is not None:
-        return [best_opt]
-        
-    return [random.randrange(len(options))]
-
-
 # ----------------- MIDRANGE AGENT -----------------
-MIDRANGE_DECK = (
-    [119]*4 + [120]*4 + [121]*4 + # Dreepy, Drakloak, Dragapult ex
-    [2]*6 + [5]*6 +               # 6x Fire, 6x Psychic Energy
-    [1182]*4 + [1213]*4 +         # Boss's Orders, Judge
-    [1192]*4 + [1191]*4 +         # Carmine, Kieran
-    [1086]*4 + [1121]*4 +         # Buddy-Buddy Poffin, Ultra Ball
-    [1123]*4 + [1116]*4 +         # Switch, Energy Switch
-    [1077]*4                      # Roto-Stick (Total 60)
-)
 def midrange_agent(obs, config):
     if obs.step == 0:
-        return MIDRANGE_DECK
+        return ([119]*4 + [120]*4 + [121]*4 + [2]*6 + [5]*6 + [1182]*4 + [1213]*4 + [1192]*4 + [1191]*4 + [1086]*4 + [1121]*4 + [1123]*4 + [1116]*4 + [1077]*4)
+    return greedy_agent(obs, config)
 
-    select = obs.get('select', {})
-    options = select.get('option', [])
-    if not options:
-        return []
-
-    current = obs.get('current', {})
-
-    if select.get('type') in [1, 9]:
-        def setup_score(opt):
-            idx = opt.get('index') if 'index' in opt else opt.get('type')
-            hand = current.get('players', [{}, {}])[current.get('yourIndex', 0)].get('hand', [])
-            if idx is not None and idx < len(hand):
-                card = hand[idx]
-                cid = card.get('id') if isinstance(card, dict) else card
-                if cid == 96: return 100
-                if cid == 916: return 50
-            return 0
-
-        scored_opts = sorted([(setup_score(opt), i) for i, opt in enumerate(options)], reverse=True)
-        min_req = select.get('minCount', 1)
-        if scored_opts:
-            return [idx for score, idx in scored_opts[:min_req]]
-        return list(range(min(min_req, len(options))))
-
-    def is_attack_option(opt):
-        return opt.get('type') == 13
-
-    for i, opt in enumerate(options):
-        if opt.get('type') == 8:
-            return [i]
-
-    max_atk_id = -1
-    best_opt = None
-    for i, opt in enumerate(options):
-        if is_attack_option(opt):
-            atk_id = opt.get('attackId', 0)
-            if atk_id > max_atk_id:
-                max_atk_id = atk_id
-                best_opt = i
-
-    if best_opt is not None:
-        return [best_opt]
-
-    return [random.randrange(len(options))]
+# ----------------- CONTROL AGENT -----------------
+def control_agent(obs, config):
+    if obs.step == 0:
+        return ([162]*4 + [163]*4 + [5]*16 + [1182]*4 + [1213]*4 + [1192]*4 + [1191]*4 + [1086]*4 + [1121]*4 + [1123]*4 + [1116]*4 + [1077]*4)
+    return greedy_agent(obs, config)
 
 # ----------------- ROBUSTNESS RUNNER -----------------
 try:
@@ -711,8 +537,8 @@ def batch_simulate(name, agent_test, agent_baseline, n_games, base_seed):
     print(f"FINAL {name}: Win Rate {test_wr:.1f}% ± {ci:.1f}%")
     return test_wins, n_games - test_wins - ties, ties, test_wr, ci
 
-# Execute the 10-game smoke test to verify it works
-games = 10
+# Execute the 1000-game test
+games = 1000
 seed = 42
 print(f"Executing H5 Cross-Archetype Robustness Matrix (N={games}, Seed={seed})")
 
@@ -726,5 +552,4 @@ print("| :--- | :--- | :--- | :--- | :--- | :--- | :--- |")
 print(f"| H1 | Aggro Mirror | {games:,} | {wr1:.1f}% | {100-wr1:.1f}% | ±{ci1:.1f}% | {'Heuristic' if wr1>50 else 'Baseline'} Wins |")
 print(f"| H5a | Evolution/Spread | {games:,} | {wr2:.1f}% | {100-wr2:.1f}% | ±{ci2:.1f}% | {'Heuristic' if wr2>50 else 'Baseline'} Wins |")
 print(f"| H5b | Control/Stall | {games:,} | {wr3:.1f}% | {100-wr3:.1f}% | ±{ci3:.1f}% | {'Heuristic' if wr3>50 else 'Baseline'} Wins |")
-
 
