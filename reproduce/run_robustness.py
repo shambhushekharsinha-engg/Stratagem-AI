@@ -15,7 +15,7 @@ except ImportError:
     make = None
 
 def run_match(agents, seed):
-    env = make("ptcg", debug=False, configuration={"seed": seed})
+    env = make("cabt", debug=False, configuration={"seed": seed})
     env.run(agents)
     rewards = env.steps[-1][0]['reward'], env.steps[-1][1]['reward']
     # Return 1 if agent 0 wins, 0 if agent 1 wins, 0.5 for tie

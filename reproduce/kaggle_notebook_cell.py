@@ -493,7 +493,7 @@ except ImportError:
     make = None
 
 def run_match(agents, seed):
-    env = make("ptcg", debug=False, configuration={"seed": seed})
+    env = make("cabt", debug=False, configuration={"seed": seed})
     env.run(agents)
     rewards = env.steps[-1][0]['reward'], env.steps[-1][1]['reward']
     if rewards[0] > rewards[1]: return 1
