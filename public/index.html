@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
     
-    <!-- Dependencies for Wow-Factor -->
+    <!-- Dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
@@ -19,6 +19,10 @@
             --accent-glow: rgba(56, 189, 248, 0.5);
             --text-main: #e2e8f0;
             --text-muted: #94a3b8;
+            --green: #10b981;
+            --red: #f43f5e;
+            --purple: #c084fc;
+            --indigo: #818cf8;
         }
         body { 
             margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; 
@@ -30,6 +34,7 @@
         .bg-orb { position: fixed; border-radius: 50%; filter: blur(100px); z-index: -1; opacity: 0.35; animation: float 12s infinite alternate; }
         .orb-1 { width: 400px; height: 400px; background: #38bdf8; top: -100px; left: -100px; }
         .orb-2 { width: 500px; height: 500px; background: #c084fc; bottom: -150px; right: -100px; animation-direction: alternate-reverse; animation-duration: 15s;}
+        .orb-3 { width: 300px; height: 300px; background: #10b981; top: 40%; left: 60%; animation-duration: 18s; opacity: 0.15; }
         @keyframes float { 0% { transform: translateY(0px) scale(1); } 100% { transform: translateY(60px) scale(1.1); } }
 
         /* Reading Progress Bar */
@@ -47,6 +52,12 @@
         .sidebar h3 { margin-top: 0; color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-size: 1.1em;}
         .sidebar a { display: block; color: var(--text-muted); text-decoration: none; padding: 10px 0; font-size: 14px; border-left: 2px solid transparent; padding-left: 15px; transition: all 0.3s ease; }
         .sidebar a:hover, .sidebar a.active { color: var(--accent); border-left-color: var(--accent); transform: translateX(5px); text-shadow: 0 0 10px var(--accent-glow); }
+
+        /* Sidebar extra links */
+        .sidebar-links { margin-top: 20px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.08); }
+        .sidebar-ext-link { display: flex; align-items: center; gap: 8px; color: var(--text-muted) !important; font-size: 13px !important; padding: 8px 0 !important; padding-left: 0 !important; border-left: none !important; transform: none !important; }
+        .sidebar-ext-link:hover { color: var(--accent) !important; transform: none !important; }
+        .sidebar-ext-link svg { flex-shrink: 0; }
         
         .content { flex: 1; max-width: 800px; padding-bottom: 100px; animation: slideUp 0.8s ease-out forwards; }
         
@@ -100,7 +111,6 @@
             transform-style: preserve-3d;
             border: 1px solid rgba(255,255,255,0.05);
         }
-        /* The Holographic Glare */
         .foil-card::before {
             content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.15) 30%, transparent 40%);
@@ -114,7 +124,7 @@
             background: -webkit-linear-gradient(45deg, #38bdf8, #818cf8, #c084fc); 
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
             filter: drop-shadow(0 0 30px rgba(56, 189, 248, 0.5));
-            transform: translateZ(40px); /* 3D pop */
+            transform: translateZ(40px);
         }
         .foil-card p { font-size: 1.4em; color: var(--text-muted); font-weight: 400; margin: 0; transform: translateZ(30px); }
         
@@ -129,6 +139,7 @@
         @keyframes typing { from { width: 0 } to { width: 100% } }
         @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #10b981; } }
 
+        .btn-group { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
         .btn-3d {
             display: inline-block; padding: 16px 40px; font-size: 16px; font-weight: 800; color: #0b0f19 !important;
             background: linear-gradient(135deg, #38bdf8, #818cf8); border-radius: 50px; text-transform: uppercase; letter-spacing: 1.5px;
@@ -136,28 +147,176 @@
         }
         .btn-3d:hover { transform: translateY(2px); box-shadow: 0 4px 0 #2563eb, 0 10px 15px rgba(37, 99, 235, 0.5); }
         .btn-3d:active { transform: translateY(6px); box-shadow: 0 0 0 #2563eb, 0 5px 10px rgba(37, 99, 235, 0.5); }
+        .btn-outline {
+            display: inline-block; padding: 14px 36px; font-size: 15px; font-weight: 700; color: var(--accent) !important;
+            background: transparent; border: 2px solid var(--accent); border-radius: 50px; text-transform: uppercase; letter-spacing: 1.5px;
+            transition: all 0.2s ease; cursor: pointer; text-decoration: none;
+        }
+        .btn-outline:hover { background: rgba(56, 189, 248, 0.1); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(56,189,248,0.3); }
         
-        /* Interactive Data Dashboard (Chart) */
+        /* ================================================
+           NEW COMPONENT 1: Animated Stats Hero Bar
+        ================================================ */
+        .stats-bar {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+            margin: 0 0 60px 0; padding: 0;
+        }
+        .stat-card {
+            background: var(--surface-color); backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.08); border-radius: 16px;
+            padding: 24px 16px; text-align: center;
+            position: relative; overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .stat-card::before { 
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            border-radius: 16px 16px 0 0;
+        }
+        .stat-card.red::before { background: linear-gradient(90deg, #f43f5e, #fb923c); }
+        .stat-card.green::before { background: linear-gradient(90deg, #10b981, #34d399); }
+        .stat-card.blue::before { background: linear-gradient(90deg, #38bdf8, #818cf8); }
+        .stat-card.purple::before { background: linear-gradient(90deg, #c084fc, #f472b6); }
+        .stat-value { font-size: 2.8em; font-weight: 800; line-height: 1; margin-bottom: 6px; }
+        .stat-card.red .stat-value { color: #f43f5e; text-shadow: 0 0 20px rgba(244, 63, 94, 0.5); }
+        .stat-card.green .stat-value { color: #10b981; text-shadow: 0 0 20px rgba(16, 185, 129, 0.5); }
+        .stat-card.blue .stat-value { color: #38bdf8; text-shadow: 0 0 20px rgba(56, 189, 248, 0.5); }
+        .stat-card.purple .stat-value { color: #c084fc; text-shadow: 0 0 20px rgba(192, 132, 252, 0.5); }
+        .stat-label { font-size: 0.75em; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+        .stat-sub { font-size: 0.7em; color: rgba(148,163,184,0.6); margin-top: 4px; }
+
+        /* ================================================
+           NEW COMPONENT 7: Keyword Badges
+        ================================================ */
+        .keyword-badges {
+            display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 20px 0;
+        }
+        .badge {
+            padding: 6px 14px; border-radius: 50px; font-size: 12px; font-weight: 700;
+            letter-spacing: 0.8px; text-transform: uppercase; border: 1px solid;
+        }
+        .badge-blue { color: #38bdf8; border-color: rgba(56,189,248,0.4); background: rgba(56,189,248,0.08); }
+        .badge-purple { color: #c084fc; border-color: rgba(192,132,252,0.4); background: rgba(192,132,252,0.08); }
+        .badge-green { color: #10b981; border-color: rgba(16,185,129,0.4); background: rgba(16,185,129,0.08); }
+        .badge-indigo { color: #818cf8; border-color: rgba(129,140,248,0.4); background: rgba(129,140,248,0.08); }
+        .badge-rose { color: #fb7185; border-color: rgba(251,113,133,0.4); background: rgba(251,113,133,0.08); }
+        .badge-amber { color: #fbbf24; border-color: rgba(251,191,36,0.4); background: rgba(251,191,36,0.08); }
+
+        /* ================================================
+           NEW COMPONENT 5: Methodology Callout Cards
+        ================================================ */
+        .methodology-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+            margin: 32px 0;
+        }
+        .method-card {
+            background: rgba(15, 23, 42, 0.8); border-radius: 12px; padding: 20px;
+            border: 1px solid rgba(56,189,248,0.15);
+            display: flex; flex-direction: column; gap: 6px;
+        }
+        .method-card-icon { font-size: 1.5em; }
+        .method-card-label { font-size: 0.7em; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--accent); }
+        .method-card-value { font-family: 'Fira Code', monospace; font-size: 0.95em; color: #e2e8f0; }
+        .method-card-note { font-size: 0.75em; color: var(--text-muted); line-height: 1.4; margin-top: 2px; }
+
+        /* ================================================
+           NEW COMPONENT 6: First-Prize Arc Gauge
+        ================================================ */
+        .gauge-panel {
+            background: var(--surface-color); border-radius: 20px; padding: 30px;
+            border: 1px solid rgba(255,255,255,0.07); margin: 32px 0;
+            display: flex; align-items: center; gap: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .gauge-chart-wrap { position: relative; width: 180px; height: 180px; flex-shrink: 0; }
+        .gauge-chart-wrap canvas { position: absolute; top: 0; left: 0; }
+        .gauge-center-text {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            text-align: center; pointer-events: none;
+        }
+        .gauge-center-text .big { font-size: 1.9em; font-weight: 800; color: #10b981; text-shadow: 0 0 20px rgba(16,185,129,0.5); }
+        .gauge-center-text .small { font-size: 0.7em; color: var(--text-muted); font-weight: 600; }
+        .gauge-info h4 { margin: 0 0 8px 0; font-size: 1.2em; color: #fff; }
+        .gauge-info p { margin: 0; font-size: 0.95em; line-height: 1.7; color: #94a3b8; }
+        .gauge-info .citation { font-family: 'Fira Code', monospace; font-size: 0.75em; color: rgba(56,189,248,0.7); margin-top: 10px; display: block; }
+
+        /* ================================================
+           CHART DASHBOARD — existing & new
+        ================================================ */
         .dashboard-panel {
             background: rgba(30, 41, 59, 0.5); border-radius: 16px; padding: 30px; margin: 40px 0;
             border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
+        .dashboard-panel h3 { margin: 0 0 20px 0; font-size: 1.1em; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+        .chart-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 40px 0; }
+        @media (max-width: 640px) { .chart-grid-2 { grid-template-columns: 1fr; } }
 
+        /* ================================================
+           NEW COMPONENT 4: Deck List Visual
+        ================================================ */
+        .deck-container {
+            background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.8));
+            border-radius: 20px; padding: 30px; margin: 40px 0;
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            position: relative; overflow: hidden;
+        }
+        .deck-container::before {
+            content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc, #10b981);
+        }
+        .deck-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+        .deck-header h3 { margin: 0; font-size: 1.3em; }
+        .deck-badge { padding: 5px 14px; border-radius: 50px; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.4); color: #10b981; font-size: 0.75em; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .deck-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .deck-group h4 { margin: 0 0 12px 0; font-size: 0.7em; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .deck-group.pokemon h4 { color: #f59e0b; }
+        .deck-group.trainer h4 { color: #38bdf8; }
+        .deck-group.energy h4 { color: #10b981; }
+        .deck-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .deck-row:last-child { border-bottom: none; }
+        .deck-row-name { font-size: 0.88em; color: #cbd5e1; }
+        .deck-row-name span { font-size: 0.8em; color: var(--text-muted); }
+        .deck-row-count { font-family: 'Fira Code', monospace; font-size: 0.85em; font-weight: 700; color: var(--accent); background: rgba(56,189,248,0.1); padding: 2px 8px; border-radius: 6px; }
+        .deck-total { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: flex-end; align-items: center; gap: 12px; font-size: 0.85em; color: var(--text-muted); }
+        .deck-total strong { color: #fff; font-size: 1.1em; }
+
+        /* ================================================
+           Mermaid Diagram
+        ================================================ */
         .mermaid { display: flex; justify-content: center; background: rgba(30, 41, 59, 0.4); padding: 30px; border-radius: 16px; margin: 40px 0; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 15px 40px rgba(0,0,0,0.4); transition: transform 0.3s ease;}
         
         @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideRight { from { opacity: 0; transform: translateX(-40px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes countUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Counter animation class */
+        .counting { animation: countUp 0.4s ease-out forwards; }
+        
         @media (max-width: 900px) { .container { flex-direction: column; } .sidebar { display: none; } }
+        @media (max-width: 600px) { .stats-bar { grid-template-columns: repeat(2, 1fr); } .deck-columns { grid-template-columns: 1fr; } .methodology-grid { grid-template-columns: 1fr; } .gauge-panel { flex-direction: column; } }
     </style>
 </head>
 <body>
     <div class="bg-orb orb-1"></div>
     <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
     <div id="progress-bar"></div>
 
     <div class="container">
         <nav class="sidebar" id="toc">
-            <h3>Table of Contents</h3>
+            <h3>📋 Contents</h3>
+            <!-- Injected by JS -->
+            <div class="sidebar-links">
+                <a href="https://github.com/shambhushekharsinha-engg/Stratagem-AI" target="_blank" class="sidebar-ext-link">
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+                    GitHub Repository
+                </a>
+                <a href="https://www.kaggle.com/competitions/pokemon-tcg-ai-battle-challenge-strategy" target="_blank" class="sidebar-ext-link">
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M18.825 23.859c-.022.092-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.448 1.374v5.111c0 .235-.117.352-.351.352H5.505c-.236 0-.354-.117-.354-.352V.353c0-.233.118-.353.354-.353h2.431c.234 0 .351.12.351.353v14.343l6.203-6.272c.165-.165.33-.246.495-.246h3.239c.144 0 .236.06.285.18.046.149.034.255-.036.315l-6.555 6.344 6.836 8.507c.095.104.117.208.07.336"/></svg>
+                    Kaggle Competition
+                </a>
+            </div>
         </nav>
         <main class="content">
             <div class="hero">
@@ -168,9 +327,37 @@
                     <div class="terminal-box">
                         <div class="typewriter">> Executing 1000-game Simulation...</div>
                         <div style="color: #64748b; margin-top: 5px;">> Resolving Cabt Engine states... [OK]</div>
+                        <div style="color: #64748b; margin-top: 3px;">> Parsing 4,741 episode logs... [OK]</div>
                     </div>
                 </div>
-                <a href="https://github.com/shambhushekharsinha-engg/Stratagem-AI" target="_blank" class="btn-3d">View Kaggle Source Code</a>
+                <div class="btn-group">
+                    <a href="https://github.com/shambhushekharsinha-engg/Stratagem-AI" target="_blank" class="btn-3d">View Kaggle Source Code</a>
+                    <a href="https://www.kaggle.com/competitions/pokemon-tcg-ai-battle-challenge-strategy" target="_blank" class="btn-outline">Kaggle Competition ↗</a>
+                </div>
+            </div>
+
+            <!-- COMPONENT 1: Stats Hero Bar -->
+            <div class="stats-bar">
+                <div class="stat-card red">
+                    <div class="stat-value" data-target="35.7" data-suffix="%">0%</div>
+                    <div class="stat-label">Heuristic Win Rate</div>
+                    <div class="stat-sub">H1 — Aggro Mirror (N=1,000)</div>
+                </div>
+                <div class="stat-card green">
+                    <div class="stat-value" data-target="64.3" data-suffix="%">0%</div>
+                    <div class="stat-label">Greedy Baseline WR</div>
+                    <div class="stat-sub">95% CI ±3.0% — Tempo Wins</div>
+                </div>
+                <div class="stat-card blue">
+                    <div class="stat-value" data-target="61.2" data-suffix="%">0%</div>
+                    <div class="stat-label">First-Prize Tempo Rate</div>
+                    <div class="stat-sub">H2 — N=4,627 decisive games</div>
+                </div>
+                <div class="stat-card purple">
+                    <div class="stat-value" data-target="4741" data-suffix="" data-comma="true">0</div>
+                    <div class="stat-label">Episodes Parsed</div>
+                    <div class="stat-sub">Aug 16th Dataset · H5 Meta</div>
+                </div>
             </div>
             
             <div id="paper-content">
@@ -187,18 +374,56 @@
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
         mermaid.initialize({ startOnLoad: false, theme: 'dark' });
 
-        // Scroll Progress
+        // ─── Scroll Progress ───────────────────────────────────────────────
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             document.getElementById('progress-bar').style.width = (winScroll / height) * 100 + "%";
+
+            // Active TOC link
+            const headers = document.querySelectorAll('#paper-content h1, #paper-content h2, #paper-content h3');
+            let current = '';
+            headers.forEach(h => { if (window.scrollY >= h.offsetTop - 120) current = h.id; });
+            document.querySelectorAll('.sidebar a').forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+            });
         });
 
+        // ─── Animated Stat Counters ────────────────────────────────────────
+        function animateCounters() {
+            const cards = document.querySelectorAll('.stat-value[data-target]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target;
+                    const target = parseFloat(el.dataset.target);
+                    const suffix = el.dataset.suffix || '';
+                    const useComma = el.dataset.comma === 'true';
+                    const duration = 1400;
+                    const start = performance.now();
+                    function step(now) {
+                        const p = Math.min((now - start) / duration, 1);
+                        const eased = 1 - Math.pow(1 - p, 3);
+                        const val = target * eased;
+                        el.textContent = useComma
+                            ? Math.round(val).toLocaleString() + suffix
+                            : val.toFixed(target % 1 === 0 ? 0 : 1) + suffix;
+                        if (p < 1) requestAnimationFrame(step);
+                    }
+                    requestAnimationFrame(step);
+                    observer.unobserve(el);
+                });
+            }, { threshold: 0.3 });
+            cards.forEach(c => observer.observe(c));
+        }
+        animateCounters();
+
+        // ─── Fetch & Render PAPER.md ───────────────────────────────────────
         fetch('PAPER.md')
             .then(response => response.text())
             .then(async text => {
                 const renderer = new marked.Renderer();
-                
                 renderer.code = function(code, lang) {
                     if (lang === 'mermaid') return '<div class="mermaid">' + code + '</div>';
                     return marked.Renderer.prototype.code.apply(this, arguments);
@@ -215,64 +440,404 @@
                     h.id = 'header-' + i;
                     const a = document.createElement('a');
                     a.href = '#' + h.id;
-                    a.textContent = h.textContent.replace(/A \d+\./g, '').trim(); 
-                    if (h.tagName === 'H2') a.style.paddingLeft = '15px';
-                    if (h.tagName === 'H3') a.style.paddingLeft = '30px';
-                    toc.appendChild(a);
+                    a.textContent = h.textContent.replace(/A \d+\./g, '').trim();
+                    if (h.tagName === 'H2') a.style.paddingLeft = '25px';
+                    if (h.tagName === 'H3') a.style.paddingLeft = '38px';
+                    toc.insertBefore(a, toc.querySelector('.sidebar-links'));
                 });
 
-                // Inject Interactive Chart Dashboard
-                injectChart();
+                // ── Inject all components ──────────────────────────────
+                injectKeywordBadges();
+                injectDeckList();
+                injectMethodologyCallouts();
+                injectFirstPrizeGauge();
+                injectWinRateChart();
+                injectCrossArchetypeChart();
+                injectMetaDonut();
             });
 
-        function injectChart() {
-            // Find the Hypothesis Results header to inject the chart below it
-            const contentDiv = document.getElementById('paper-content');
-            
-            const dashboardHTML = `
-                <div class="dashboard-panel">
-                    <h3 style="margin-top: 0; text-align: center;">Live Win-Rate Dashboard (1,000 Games)</h3>
-                    <canvas id="winRateChart" height="100"></canvas>
+        // ─── COMPONENT 7: Keyword Badges ──────────────────────────────────
+        function injectKeywordBadges() {
+            const abstractHeader = findHeaderByText('Abstract');
+            if (!abstractHeader) return;
+            const badges = `
+            <div class="keyword-badges">
+                <span class="badge badge-blue">#Tempo Dominance</span>
+                <span class="badge badge-purple">#Heuristic Search</span>
+                <span class="badge badge-green">#A/B Testing</span>
+                <span class="badge badge-indigo">#PTCG Engine</span>
+                <span class="badge badge-rose">#Empirical Falsification</span>
+                <span class="badge badge-amber">#Monte Carlo–Free</span>
+                <span class="badge badge-blue">#Prize-Race Theory</span>
+            </div>`;
+            abstractHeader.insertAdjacentHTML('beforebegin', badges);
+        }
+
+        // ─── COMPONENT 4: Deck List ────────────────────────────────────────
+        function injectDeckList() {
+            const deckHeader = findHeaderByText('Deck Construction');
+            if (!deckHeader) return;
+            const deckHTML = `
+            <div class="deck-container">
+                <div class="deck-header">
+                    <h3>🃏 Submitted Deck List — <em style="color:#818cf8; font-style:normal;">Ogerpon Aggro</em></h3>
+                    <span class="deck-badge">60 Cards · Expanded</span>
                 </div>
-            `;
-            
-            // Append at the end of section 5 roughly (or just end of document)
+                <div class="deck-columns">
+                    <div class="deck-group pokemon">
+                        <h4>⚡ Pokémon — 12</h4>
+                        <div class="deck-row"><span class="deck-row-name">Ogerpon ex <span>(Teal Mask)</span></span><span class="deck-row-count">4</span></div>
+                        <div class="deck-row"><span class="deck-row-name">Scyther</span><span class="deck-row-count">4</span></div>
+                        <div class="deck-row"><span class="deck-row-name">Radiant Charizard</span><span class="deck-row-count">1</span></div>
+                        <div class="deck-row"><span class="deck-row-name">Manaphy</span><span class="deck-row-count">1</span></div>
+                        <div class="deck-row"><span class="deck-row-name">Lumineon V</span><span class="deck-row-count">1</span></div>
+                        <div class="deck-row"><span class="deck-row-name">Crobat V</span><span class="deck-row-count">1</span></div>
+                    </div>
+                    <div class="deck-group trainer">
+                        <h4>🔧 Trainer — 38</h4>
+                        <div class="deck-row"><span class="deck-row-name">Carmine <span>(Supporter)</span></span><span class="deck-row-count">4</span></div>
+                        <div class="deck-row"><span class="deck-row-name">Judge <span>(Supporter)</span></span><span class="deck-row-count">3</span></div>
+                        <div class="deck-row"><span class="deck-row-name">Boss's Orders <span>(Gust)</span></span><span class="deck-row-count">3</span></div>
+                        <div class="deck-row"><span class="deck-row-name">Arven <span>(Supporter)</span></span><span class="deck-row-count">4</span></div>
+                        <div class="deck-row"><span class="deck-row-name">Quick Ball</span><span class="deck-row-count">4</span></div>
+                        <div class="deck-row"><span class="deck-row-name">Ultra Ball</span><span class="deck-row-count">4</span></div>
+                        <div class="deck-row"><span class="deck-row-name">Nest Ball</span><span class="deck-row-count">4</span></div>
+                        <div class="deck-row"><span class="deck-row-name">Energy Retrieval</span><span class="deck-row-count">4</span></div>
+                        <div class="deck-row"><span class="deck-row-name">Switch</span><span class="deck-row-count">4</span></div>
+                        <div class="deck-row"><span class="deck-row-name">Escape Rope</span><span class="deck-row-count">2</span></div>
+                        <div class="deck-row"><span class="deck-row-name">Battle VIP Pass</span><span class="deck-row-count">2</span></div>
+                    </div>
+                    <div class="deck-group energy">
+                        <h4>💧 Energy — 10</h4>
+                        <div class="deck-row"><span class="deck-row-name">Grass Energy</span><span class="deck-row-count">10</span></div>
+                        <div class="deck-row" style="margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.06);">
+                            <span class="deck-row-name" style="color:#64748b; font-size:0.8em;">Design Rationale</span>
+                        </div>
+                        <div style="font-size:0.82em; color:#64748b; line-height:1.7; margin-top:8px;">
+                            Minimum energy count prevents late-game dead draws. Energy Retrieval recovers from discard to ensure 6-prize aggression across all stages.
+                        </div>
+                    </div>
+                </div>
+                <div class="deck-total">
+                    Total: <strong>60</strong> · Avg. Setup Turn: <strong>T1–T2</strong> · Primary Attacker: <strong>Ogerpon ex</strong>
+                </div>
+            </div>`;
+            // Insert after the deck section header's parent section ends, i.e. after the next h2
+            const nextSection = findNextH2AfterHeader(deckHeader);
+            if (nextSection) nextSection.insertAdjacentHTML('beforebegin', deckHTML);
+            else deckHeader.parentElement.insertAdjacentHTML('afterend', deckHTML);
+        }
+
+        // ─── COMPONENT 5: Methodology Callouts ────────────────────────────
+        function injectMethodologyCallouts() {
+            const methodHeader = findHeaderByText('Experimental Methodology');
+            if (!methodHeader) return;
+            const cards = `
+            <div class="methodology-grid">
+                <div class="method-card">
+                    <div class="method-card-icon">🎲</div>
+                    <div class="method-card-label">RNG Seeding</div>
+                    <div class="method-card-value">Base Seed 42, +1 per match</div>
+                    <div class="method-card-note">Deterministic schedule eliminates stochastic variance across all 1,000-game batches</div>
+                </div>
+                <div class="method-card">
+                    <div class="method-card-icon">⚖️</div>
+                    <div class="method-card-label">Seat Balance</div>
+                    <div class="method-card-value">500 games as P1 · 500 as P2</div>
+                    <div class="method-card-note">Strict positional parity eliminates first-player initiative bias from reported win rates</div>
+                </div>
+                <div class="method-card">
+                    <div class="method-card-icon">📊</div>
+                    <div class="method-card-label">Confidence Interval</div>
+                    <div class="method-card-value">95% CI · ±3.0% all tests</div>
+                    <div class="method-card-note">Wilson Score method on N=1,000 binary outcomes per experiment</div>
+                </div>
+                <div class="method-card">
+                    <div class="method-card-icon">🛡️</div>
+                    <div class="method-card-label">Engine Environment</div>
+                    <div class="method-card-value">Kaggle cabt (compiled C++)</div>
+                    <div class="method-card-note">Official tournament engine. Opaque move metadata required custom damage projection via CSV parsing</div>
+                </div>
+                <div class="method-card">
+                    <div class="method-card-icon">🔄</div>
+                    <div class="method-card-label">Retreats Triggered (H1)</div>
+                    <div class="method-card-value">993 / 1,000 games</div>
+                    <div class="method-card-note">Priority 4 fired correctly in 99.3% of games — the defensive logic was sound, but costly</div>
+                </div>
+                <div class="method-card">
+                    <div class="method-card-icon">🎯</div>
+                    <div class="method-card-label">Successful Gusts (H3)</div>
+                    <div class="method-card-value">110 gusts · 0 in No-Gust run</div>
+                    <div class="method-card-note">EV delta between 35.7% and 36.0% is statistically indistinguishable (SE of difference ~2.2%)</div>
+                </div>
+            </div>`;
+            methodHeader.insertAdjacentHTML('afterend', cards);
+        }
+
+        // ─── COMPONENT 6: First-Prize Arc Gauge ───────────────────────────
+        function injectFirstPrizeGauge() {
+            const h2header = findHeaderByText('H1 & H2');
+            if (!h2header) return;
+            const gaugeHTML = `
+            <div class="gauge-panel">
+                <div class="gauge-chart-wrap">
+                    <canvas id="gaugeCanvas" width="180" height="180"></canvas>
+                    <div class="gauge-center-text">
+                        <div class="big">61.2%</div>
+                        <div class="small">Win Rate</div>
+                    </div>
+                </div>
+                <div class="gauge-info">
+                    <h4>🏁 H2: Tempo Dominance — First-Prize Advantage</h4>
+                    <p>In <strong>61.2% of decisive games</strong> from the August 16th dataset (N=4,627), the player who takes the <em>first prize card</em> wins the game. This empirical result directly validates the core tempo hypothesis: the PTCG prize race is not a balanced trade war — it is a sprint. An early KO creates cascading advantages in energy attachment, hand state, and board presence that are statistically prohibitive to overcome.</p>
+                    <code class="citation">Source: 4,741 episode logs · fromArea == 6 prize-draw parsing · Aug 16th dataset</code>
+                </div>
+            </div>`;
+            h2header.insertAdjacentHTML('beforebegin', gaugeHTML);
+            // Draw the arc chart
+            setTimeout(() => {
+                const canvas = document.getElementById('gaugeCanvas');
+                if (!canvas) return;
+                const ctx = canvas.getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        datasets: [{
+                            data: [61.2, 38.8],
+                            backgroundColor: ['rgba(16, 185, 129, 0.85)', 'rgba(30, 41, 59, 0.6)'],
+                            borderColor: ['#10b981', 'rgba(30, 41, 59, 0.8)'],
+                            borderWidth: 2, hoverOffset: 4,
+                        }]
+                    },
+                    options: {
+                        responsive: false, cutout: '72%', rotation: -90, circumference: 180,
+                        animation: { duration: 1200, easing: 'easeInOutQuart' },
+                        plugins: { legend: { display: false }, tooltip: { enabled: false } }
+                    }
+                });
+            }, 100);
+        }
+
+        // ─── Original Win Rate Chart (H1/H2/H3) ───────────────────────────
+        function injectWinRateChart() {
+            const contentDiv = document.getElementById('paper-content');
+            const dashboardHTML = `
+            <div class="dashboard-panel">
+                <h3>📈 Win-Rate Dashboard — 1,000 Games Each</h3>
+                <canvas id="winRateChart" height="80"></canvas>
+            </div>`;
             contentDiv.insertAdjacentHTML('beforeend', dashboardHTML);
-            
             const ctx = document.getElementById('winRateChart').getContext('2d');
             new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['Heuristic (H1)', 'No-Gust (H3)', 'Greedy Baseline'],
+                    labels: ['Heuristic (H1)', 'No-Gust Variant (H3)', 'Greedy Baseline (H2)'],
                     datasets: [{
                         label: 'Win Rate %',
                         data: [35.7, 36.0, 64.3],
-                        backgroundColor: [
-                            'rgba(244, 63, 94, 0.7)',  // Red
-                            'rgba(244, 63, 94, 0.7)',  // Red
-                            'rgba(16, 185, 129, 0.8)'   // Green
-                        ],
-                        borderColor: [
-                            'rgba(244, 63, 94, 1)',
-                            'rgba(244, 63, 94, 1)',
-                            'rgba(16, 185, 129, 1)'
-                        ],
-                        borderWidth: 2,
-                        borderRadius: 8
+                        backgroundColor: ['rgba(244,63,94,0.7)', 'rgba(244,63,94,0.55)', 'rgba(16,185,129,0.8)'],
+                        borderColor: ['rgba(244,63,94,1)', 'rgba(244,63,94,0.8)', 'rgba(16,185,129,1)'],
+                        borderWidth: 2, borderRadius: 8,
+                    }, {
+                        label: '95% CI Margin',
+                        data: [3.0, 3.0, 3.0],
+                        type: 'line',
+                        borderColor: 'rgba(129,140,248,0.5)',
+                        backgroundColor: 'rgba(129,140,248,0.05)',
+                        borderDash: [6, 4], borderWidth: 2,
+                        pointStyle: false, fill: false,
+                        yAxisID: 'y',
                     }]
                 },
                 options: {
-                    responsive: true,
+                    responsive: true, interaction: { mode: 'index' },
                     scales: {
-                        y: { beginAtZero: true, max: 100, ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } },
-                        x: { ticks: { color: '#e2e8f0', font: {size: 14, weight: 'bold'} }, grid: { display: false } }
+                        y: { beginAtZero: true, max: 100, ticks: { color: '#94a3b8', callback: v => v + '%' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        x: { ticks: { color: '#e2e8f0', font: { size: 13, weight: 'bold' } }, grid: { display: false } }
                     },
                     plugins: {
-                        legend: { display: false },
-                        tooltip: { backgroundColor: '#1e293b', titleFont: {size: 16}, bodyFont: {size: 14}, padding: 15 }
+                        legend: { display: true, labels: { color: '#94a3b8', boxWidth: 14 } },
+                        tooltip: {
+                            backgroundColor: '#1e293b', titleFont: { size: 14 }, bodyFont: { size: 13 }, padding: 14,
+                            callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}%` }
+                        },
+                        annotation: {}
                     }
                 }
             });
+        }
+
+        // ─── COMPONENT 2: Cross-Archetype Grouped Bar Chart ───────────────
+        function injectCrossArchetypeChart() {
+            const h5header = findHeaderByText('H5: Cross-Archetype');
+            if (!h5header) return;
+            const chartHTML = `
+            <div class="dashboard-panel">
+                <h3>🌍 H5 Cross-Archetype Robustness — Environmental Dependency</h3>
+                <canvas id="crossArchChart" height="90"></canvas>
+                <p style="font-size:0.8em; color:#64748b; margin-top:16px; text-align:center;">
+                    The heuristic's disadvantage is environment-dependent — statistically significant only in the tested Aggro Mirror. No distinguishable advantage for either policy in non-mirror environments (p > 0.05, Wilson Score).
+                </p>
+            </div>`;
+            // Insert after the H5 table
+            const h5Table = h5header.parentElement.querySelector('table');
+            if (h5Table) h5Table.insertAdjacentHTML('afterend', chartHTML);
+            else h5header.insertAdjacentHTML('afterend', chartHTML);
+
+            const ctx = document.getElementById('crossArchChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['H1: Aggro Mirror', 'H5a: Evolution/Spread', 'H5b: Control/Stall'],
+                    datasets: [
+                        {
+                            label: '🔴 Heuristic Agent WR',
+                            data: [35.7, 51.3, 49.0],
+                            backgroundColor: 'rgba(244,63,94,0.75)',
+                            borderColor: 'rgba(244,63,94,1)',
+                            borderWidth: 2, borderRadius: 6,
+                        },
+                        {
+                            label: '🟢 Greedy Baseline WR',
+                            data: [64.3, 48.7, 51.0],
+                            backgroundColor: 'rgba(16,185,129,0.75)',
+                            borderColor: 'rgba(16,185,129,1)',
+                            borderWidth: 2, borderRadius: 6,
+                        },
+                        {
+                            label: '⚖️ Parity (50%)',
+                            data: [50, 50, 50],
+                            type: 'line',
+                            borderColor: 'rgba(129,140,248,0.6)',
+                            backgroundColor: 'transparent',
+                            borderDash: [8, 4], borderWidth: 2,
+                            pointStyle: false, fill: false,
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true, interaction: { mode: 'index' },
+                    scales: {
+                        y: { beginAtZero: false, min: 30, max: 70, ticks: { color: '#94a3b8', callback: v => v + '%' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        x: { ticks: { color: '#e2e8f0', font: { size: 13, weight: 'bold' } }, grid: { display: false } }
+                    },
+                    plugins: {
+                        legend: { labels: { color: '#94a3b8', boxWidth: 14 } },
+                        tooltip: { backgroundColor: '#1e293b', titleFont: { size: 14 }, bodyFont: { size: 13 }, padding: 14,
+                            callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}%` }
+                        }
+                    }
+                }
+            });
+        }
+
+        // ─── COMPONENT 3: Meta Play-Rate Donut ────────────────────────────
+        function injectMetaDonut() {
+            const metaHeader = findHeaderByText('Aggro-Tempo Meta');
+            if (!metaHeader) return;
+            const donutHTML = `
+            <div class="chart-grid-2">
+                <div class="dashboard-panel" style="margin:0;">
+                    <h3>📊 Meta Play-Rate Distribution</h3>
+                    <canvas id="metaDonut" height="220"></canvas>
+                </div>
+                <div class="dashboard-panel" style="margin:0;">
+                    <h3>🏆 Win-Rate Leaderboard</h3>
+                    <canvas id="metaWinRates" height="220"></canvas>
+                </div>
+            </div>`;
+            metaHeader.insertAdjacentHTML('afterend', donutHTML);
+
+            // Donut — play rate
+            const donutCtx = document.getElementById('metaDonut').getContext('2d');
+            new Chart(donutCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Dreepy/Drakloak', 'Ogerpon ex', 'Slowpoke/Slowking', 'Slowpoke', 'Slowpoke/SKing/Kangaskhan', 'Other'],
+                    datasets: [{
+                        data: [28.9, 18.0, 10.7, 5.6, 3.3, 33.5],
+                        backgroundColor: [
+                            'rgba(56,189,248,0.8)',
+                            'rgba(16,185,129,0.8)',
+                            'rgba(192,132,252,0.8)',
+                            'rgba(251,191,36,0.8)',
+                            'rgba(251,113,133,0.8)',
+                            'rgba(71,85,105,0.6)',
+                        ],
+                        borderColor: '#0b0f19', borderWidth: 2, hoverOffset: 6,
+                    }]
+                },
+                options: {
+                    responsive: true, cutout: '62%',
+                    animation: { duration: 1000 },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { color: '#94a3b8', boxWidth: 12, font: { size: 11 }, padding: 10 } },
+                        tooltip: {
+                            backgroundColor: '#1e293b', padding: 12, bodyFont: { size: 12 },
+                            callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed}% play rate` }
+                        }
+                    }
+                }
+            });
+
+            // Bar — win rates
+            const winCtx = document.getElementById('metaWinRates').getContext('2d');
+            new Chart(winCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Slowpoke', 'SK/Kangaskhan', 'Dreepy/Drakloak', 'Ogerpon ex', 'Slowpoke/SK'],
+                    datasets: [{
+                        label: 'Win Rate',
+                        data: [67.0, 58.0, 53.6, 52.6, 56.6],
+                        backgroundColor: [
+                            'rgba(16,185,129,0.85)',
+                            'rgba(16,185,129,0.75)',
+                            'rgba(56,189,248,0.8)',
+                            'rgba(56,189,248,0.7)',
+                            'rgba(192,132,252,0.8)',
+                        ],
+                        borderRadius: 6, borderWidth: 0,
+                    }, {
+                        label: '50% Baseline',
+                        data: [50, 50, 50, 50, 50],
+                        type: 'line',
+                        borderColor: 'rgba(244,63,94,0.5)',
+                        borderDash: [5, 4], borderWidth: 2,
+                        pointStyle: false, fill: false,
+                    }]
+                },
+                options: {
+                    indexAxis: 'y', responsive: true,
+                    scales: {
+                        x: { min: 45, max: 72, ticks: { color: '#94a3b8', callback: v => v + '%' }, grid: { color: 'rgba(255,255,255,0.04)' } },
+                        y: { ticks: { color: '#e2e8f0', font: { size: 11 } }, grid: { display: false } }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: { backgroundColor: '#1e293b', padding: 12,
+                            callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.x}%` }
+                        }
+                    }
+                }
+            });
+        }
+
+        // ─── Helpers ───────────────────────────────────────────────────────
+        function findHeaderByText(text) {
+            const headers = document.querySelectorAll('#paper-content h1, #paper-content h2, #paper-content h3');
+            for (const h of headers) {
+                if (h.textContent.toLowerCase().includes(text.toLowerCase())) return h;
+            }
+            return null;
+        }
+
+        function findNextH2AfterHeader(header) {
+            let el = header.nextElementSibling;
+            while (el) {
+                if (el.tagName === 'H1' || el.tagName === 'H2') return el;
+                el = el.nextElementSibling;
+            }
+            return null;
         }
     </script>
 </body>
