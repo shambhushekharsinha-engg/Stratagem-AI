@@ -12,7 +12,7 @@
 
 ---
 
-## ?? Video Walkthrough
+## Video Walkthrough
 
 [![Video Demo](assets/stratagem_ui_showcase_01.png)](https://www.youtube.com/watch?v=dU2HvTKX6Ww)
 *(Click the image above to watch the full YouTube walkthrough)*
